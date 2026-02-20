@@ -66,77 +66,107 @@
         async function fetchGitHubRepos() {
             const username = 'Amrit004';
             const projectsContainer = document.getElementById('githubProjects');
-            
+
+            // Helper: fetch with timeout
+            function fetchWithTimeout(url, options = {}, ms = 8000) {
+                const controller = new AbortController();
+                const timer = setTimeout(() => controller.abort(), ms);
+                return fetch(url, { ...options, signal: controller.signal })
+                    .finally(() => clearTimeout(timer));
+            }
+
             try {
-                // Try direct GitHub API first, then fallback to CORS proxy
-                let repos;
-                const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`;
-                
-                let response = await fetch(apiUrl, {
-                    headers: { 'Accept': 'application/vnd.github.v3+json' },
-                    cache: 'no-cache'
-                });
-                
-                if (!response.ok) {
-                    // Fallback: try via cors-anywhere proxy
-                    response = await fetch(`https://cors-anywhere.herokuapp.com/${apiUrl}`);
+                const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100&type=owner`;
+
+                let response;
+                try {
+                    // Primary: direct GitHub API (works in most browsers — GitHub allows CORS)
+                    response = await fetchWithTimeout(apiUrl, {
+                        headers: {
+                            'Accept': 'application/vnd.github.v3+json',
+                            'X-GitHub-Api-Version': '2022-11-28'
+                        }
+                    });
+                } catch (primaryErr) {
+                    // Fallback: use a simple JSON proxy that reliably works
+                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
+                    const proxyResponse = await fetchWithTimeout(proxyUrl, {}, 10000);
+                    if (!proxyResponse.ok) throw new Error('Both fetch methods failed');
+                    const proxyData = await proxyResponse.json();
+                    // allorigins wraps the response in { contents: "..." }
+                    response = { ok: true, json: async () => JSON.parse(proxyData.contents) };
                 }
 
-                if (!response.ok) {
-                    throw new Error('Failed to fetch repositories');
+                if (!response.ok && response.status !== undefined) {
+                    if (response.status === 403) throw new Error('GitHub rate limit reached. Please visit GitHub directly.');
+                    throw new Error(`GitHub API error: ${response.status}`);
                 }
-                
-                repos = await response.json();
-                
-                // Filter out forked repos and sort by stars
-                repos = repos.filter(r => !r.fork).sort((a, b) => b.stargazers_count - a.stargazers_count);
-                
+
+                let repos = await response.json();
+
+                // Filter forks, sort by updated date
+                repos = repos.filter(r => !r.fork)
+                             .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
                 if (repos.length === 0) {
-                    projectsContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 1.1rem;">No public repositories found. Check back soon!</p>';
+                    projectsContainer.innerHTML = `
+                        <p style="text-align:center;color:var(--text-muted);font-size:1.1rem;grid-column:1/-1;">
+                            No public repositories found yet. <a href="https://github.com/${username}" target="_blank" rel="noopener noreferrer" style="color:var(--primary)">Visit GitHub profile →</a>
+                        </p>`;
                     return;
                 }
-                
+
                 projectsContainer.innerHTML = repos.map(repo => `
                     <article class="github-card" role="listitem">
-                        <h4>${repo.name.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h4>
-                        <p style="color: var(--text-muted); margin-bottom: 1rem;">${repo.description || 'A GitHub repository showcasing practical development work'}</p>
-                        <div class="project-tags">
-                            ${repo.language ? `<span class="tag">${repo.language}</span>` : ''}
-                            <span class="tag">${repo.visibility}</span>
+                        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.8rem;">
+                            <h4 style="margin:0">${repo.name.replace(/-/g, ' ').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h4>
+                            ${repo.language ? `<span class="tag" style="flex-shrink:0;font-size:0.78rem">${repo.language}</span>` : ''}
                         </div>
+                        <p style="color:var(--text-muted);margin-bottom:1rem;font-size:0.95rem;line-height:1.6;">${repo.description || 'A project showcasing practical development skills.'}</p>
                         <div class="github-stats">
                             <div class="github-stat" aria-label="${repo.stargazers_count} stars">
                                 <span aria-hidden="true">⭐</span>
                                 <span>${repo.stargazers_count}</span>
                             </div>
                             <div class="github-stat" aria-label="${repo.forks_count} forks">
-                                <span aria-hidden="true">🔱</span>
+                                <span aria-hidden="true">🍴</span>
                                 <span>${repo.forks_count}</span>
                             </div>
-                            <div class="github-stat" aria-label="Updated ${new Date(repo.updated_at).toLocaleDateString()}">
+                            <div class="github-stat" aria-label="Updated ${new Date(repo.updated_at).toLocaleDateString('en-GB')}">
                                 <span aria-hidden="true">📅</span>
-                                <span>${new Date(repo.updated_at).toLocaleDateString()}</span>
+                                <span>${new Date(repo.updated_at).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' })}</span>
                             </div>
                         </div>
-                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" style="display: inline-block; margin-top: 1.5rem; color: var(--primary); text-decoration: none; font-weight: 600;">
-                            View Repository <span aria-hidden="true">→</span>
+                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" 
+                           style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1.2rem;color:var(--primary);text-decoration:none;font-weight:600;font-size:0.95rem;border:1px solid var(--primary);padding:0.4rem 1rem;border-radius:8px;transition:all 0.2s;"
+                           onmouseover="this.style.background='rgba(16,185,129,0.1)'" 
+                           onmouseout="this.style.background='transparent'">
+                            View on GitHub <span aria-hidden="true">→</span>
                         </a>
                     </article>
                 `).join('');
-                
+
             } catch (error) {
-                console.error('Error fetching GitHub repos:', error);
+                console.error('GitHub fetch error:', error);
                 projectsContainer.innerHTML = `
-                    <div style="text-align: center; padding: 3rem;">
-                        <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;">Unable to load GitHub projects at this time.</p>
-                        <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-block;">Visit GitHub Profile</a>
+                    <div style="text-align:center;padding:3rem;grid-column:1/-1;">
+                        <p style="font-size:2.5rem;margin-bottom:1rem;">🔗</p>
+                        <p style="color:var(--text-muted);font-size:1.1rem;margin-bottom:0.5rem;">${error.message || 'Could not load repositories automatically.'}</p>
+                        <p style="color:var(--text-muted);font-size:0.95rem;margin-bottom:2rem;">You can browse all projects directly on GitHub.</p>
+                        <a href="https://github.com/${username}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-block;">
+                            Visit github.com/${username} →
+                        </a>
                     </div>
                 `;
             }
         }
 
-        // Load GitHub repos when page loads
-        window.addEventListener('load', fetchGitHubRepos);
+        // Load repos after page fully loads
+        if (document.readyState === 'complete') {
+            fetchGitHubRepos();
+        } else {
+            window.addEventListener('load', fetchGitHubRepos);
+        }
 
         // Download CV Function
         function downloadCV() {

@@ -117,7 +117,7 @@
         /* Accessibility Controls */
         .accessibility-controls {
             position: fixed;
-            top: 80px;
+            top: 9rem;
             right: 2rem;
             background: var(--dark-light);
             border: 2px solid var(--border);
@@ -157,7 +157,7 @@
 
         .a11y-toggle {
             position: fixed;
-            top: 80px;
+            top: 5.5rem;
             right: 2rem;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
@@ -185,7 +185,7 @@
 
         /* Navigation */
         nav {
-            position: fixed;
+            position: sticky;
             top: 0;
             width: 100%;
             background: rgba(10, 10, 10, 0.95);
@@ -270,7 +270,7 @@
 
         section {
             min-height: 100vh;
-            padding: 8rem 0;
+            padding: 6rem 0;
             display: flex;
             align-items: center;
         }
@@ -991,4 +991,308 @@
         .stat-label {
             color: var(--text-muted);
             font-size: 1rem;
+        }
+
+        .stat-sub {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 0.4rem;
+            opacity: 0.7;
+        }
+
+        /* Target Roles Grid */
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .role-card {
+            background: var(--dark-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 2px solid var(--border);
+            transition: all 0.35s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
+        }
+
+        .role-card:hover::after { transform: scaleX(1); }
+
+        .role-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(16, 185, 129, 0.18);
+        }
+
+        .role-icon {
+            font-size: 2.4rem;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .role-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+        }
+
+        .role-card p {
+            color: var(--text-muted);
+            font-size: 0.97rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+
+        .role-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .role-tag {
+            background: rgba(249,115,22,0.1);
+            color: var(--secondary);
+            border: 1px solid rgba(249,115,22,0.3);
+            padding: 0.25rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        /* Hire Banner */
+        .hire-banner {
+            background: linear-gradient(90deg, rgba(16,185,129,0.15), rgba(249,115,22,0.12), rgba(16,185,129,0.15));
+            border-bottom: 1px solid var(--border);
+            padding: 0.6rem 2rem;
+            text-align: center;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            position: relative;
+            z-index: 999;
+        }
+
+        .hire-banner strong {
+            color: var(--primary);
+        }
+
+        .hire-dot {
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse-dot 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+            50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+        }
+
+        /* Nav CTA */
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+            color: white !important;
+            border-radius: 8px !important;
+            padding: 0.5rem 1.2rem !important;
+            font-weight: 700 !important;
+        }
+
+        .nav-cta:hover, .nav-cta:focus {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            color: white !important;
+        }
+
+        /* Open to roles row */
+        .open-to-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.5s backwards;
+        }
+
+        .open-label {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .open-tag {
+            background: rgba(249,115,22,0.12);
+            color: var(--secondary);
+            border: 1px solid rgba(249,115,22,0.4);
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Hire button */
+        .btn-hire {
+            background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
+            color: white;
+            border-color: var(--secondary);
+            box-shadow: 0 4px 15px rgba(249,115,22,0.35);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-hire:hover, .btn-hire:focus {
+            background: var(--secondary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(249,115,22,0.5);
+            color: white;
+        }
+
+        .btn-large {
+            padding: 1.4rem 3rem;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: var(--dark-light);
+            border-radius: 24px;
+            border: 2px solid var(--border);
+            padding: 3.5rem;
+            max-width: 960px;
+            margin: 0 auto;
+            transition: all 0.3s;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .contact-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 30px 80px rgba(16,185,129,0.15);
+        }
+
+        .contact-card-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-card-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .contact-card-text h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-card-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .available-badge {
+            background: rgba(34,197,94,0.15);
+            color: #22c55e;
+            border: 1px solid rgba(34,197,94,0.4);
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-link-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .contact-link-email {
+            background: rgba(16,185,129,0.12);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .contact-link-email:hover { background: rgba(16,185,129,0.25); transform: translateY(-2px); }
+
+        .contact-link-phone {
+            background: rgba(249,115,22,0.1);
+            color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .contact-link-phone:hover { background: rgba(249,115,22,0.22); transform: translateY(-2px); }
+
+        .contact-link-linkedin {
+            background: rgba(10,102,194,0.12);
+            color: #60a5fa;
+            border-color: #60a5fa;
+        }
+
+        .contact-link-linkedin:hover { background: rgba(10,102,194,0.22); transform: translateY(-2px); }
+
+        .contact-link-github {
+            background: rgba(255,255,255,0.06);
+            color: var(--text-muted);
+            border-color: var(--border);
+        }
+
+        .contact-link-github:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); color: var(--text); }
+
+        .contact-roles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .contact-card-cta {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 768px) {
+            .contact-card-inner { flex-direction: column; }
+            .hire-banner { font-size: 0.78rem; }
         }
