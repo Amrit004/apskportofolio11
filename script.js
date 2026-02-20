@@ -68,13 +68,28 @@
             const projectsContainer = document.getElementById('githubProjects');
             
             try {
-                const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+                // Try direct GitHub API first, then fallback to CORS proxy
+                let repos;
+                const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`;
                 
+                let response = await fetch(apiUrl, {
+                    headers: { 'Accept': 'application/vnd.github.v3+json' },
+                    cache: 'no-cache'
+                });
+                
+                if (!response.ok) {
+                    // Fallback: try via cors-anywhere proxy
+                    response = await fetch(`https://cors-anywhere.herokuapp.com/${apiUrl}`);
+                }
+
                 if (!response.ok) {
                     throw new Error('Failed to fetch repositories');
                 }
                 
-                const repos = await response.json();
+                repos = await response.json();
+                
+                // Filter out forked repos and sort by stars
+                repos = repos.filter(r => !r.fork).sort((a, b) => b.stargazers_count - a.stargazers_count);
                 
                 if (repos.length === 0) {
                     projectsContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); font-size: 1.1rem;">No public repositories found. Check back soon!</p>';
@@ -182,7 +197,7 @@ Web & Mobile: PWA, Android, Responsive Design, UX/UI, Accessibility
 Tools: Git/GitHub, VS Code, Android Studio, Figma, Agile/Scrum, CI/CD
 
 LANGUAGES
-English (Native), Punjabi (Native), Hindi (Professional), Spanish (Working), Catalan (Basic)
+English (Native / Bilingual), Spanish (Native), Catalan (Native), Punjabi (Native), Hindi (Professional)
 `;
             
             const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
