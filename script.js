@@ -3,26 +3,30 @@
         const navMenu = document.getElementById('navMenu');
 
         navHamburger.addEventListener('click', () => {
-            const isOpen = navMenu.classList.toggle('nav-open');
+            const isOpen = navMenu.classList.toggle('open');
             navHamburger.classList.toggle('open', isOpen);
             navHamburger.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
         // Close menu when a nav link is clicked
-        navMenu.querySelectorAll('a').forEach(link => {
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('nav-open');
+                navMenu.classList.remove('open');
                 navHamburger.classList.remove('open');
                 navHamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
             });
         });
 
-        // Close menu on outside click
-        document.addEventListener('click', (e) => {
-            if (!navHamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('nav-open');
+        // Close menu on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+                navMenu.classList.remove('open');
                 navHamburger.classList.remove('open');
                 navHamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                navHamburger.focus();
             }
         });
 

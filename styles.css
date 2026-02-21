@@ -872,166 +872,111 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* ── Hamburger Button ───────────────────────────────── */
-        .nav-hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 32px;
-            height: 22px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1100;
-            flex-shrink: 0;
-        }
-
-        .nav-hamburger span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background: var(--text);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .nav-hamburger.open span:nth-child(1) {
-            transform: translateY(9.5px) rotate(45deg);
-        }
-        .nav-hamburger.open span:nth-child(2) {
-            opacity: 0;
-        }
-        .nav-hamburger.open span:nth-child(3) {
-            transform: translateY(-9.5px) rotate(-45deg);
-        }
-
-        /* ── Print Styles ───────────────────────────────────── */
+        /* Print Styles */
         @media print {
             nav, .accessibility-controls, .a11y-toggle, .download-cv, .animated-bg, .grid-overlay {
                 display: none !important;
             }
-            body { background: white; color: black; }
-            section { page-break-inside: avoid; }
-        }
-
-        /* ── Large tablets (max 1024px) ─────────────────────── */
-        @media (max-width: 1024px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+            
+            body {
+                background: white;
+                color: black;
             }
-
-            .hero-visual {
-                display: none; /* hide competency sidebar on tablets/mobile — info is duplicated in skills section */
-            }
-
-            .hero-content h1 {
-                font-size: 3.5rem;
-            }
-
-            .section-header h2 {
-                font-size: 3rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
-
-            .roles-grid {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            }
-
-            .skills-section {
-                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            }
-
-            .contact-card {
-                padding: 2.5rem;
+            
+            section {
+                page-break-inside: avoid;
             }
         }
 
-        /* ── Mobile (max 768px) ─────────────────────────────── */
+        /* ===== HAMBURGER MENU ===== */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 10px;
+            cursor: pointer;
+            z-index: 1100;
+            transition: border-color 0.3s;
+        }
+
+        .nav-hamburger:hover,
+        .nav-hamburger:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .nav-hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
         @media (max-width: 768px) {
-
-            /* Nav — hamburger menu */
+            /* Nav mobile */
             .nav-hamburger {
                 display: flex;
             }
 
-            nav .container {
-                flex-wrap: wrap;
-                position: relative;
-            }
-
             nav ul {
                 display: none;
-                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
                 width: 100%;
-                gap: 0;
-                padding: 1rem 0 0.5rem;
-                border-top: 1px solid var(--border);
-                margin-top: 1rem;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 1.5rem;
+                z-index: 1050;
+                list-style: none;
+                padding: 2rem;
             }
 
-            nav ul.nav-open {
+            nav ul.open {
                 display: flex;
             }
 
-            nav ul li {
-                width: 100%;
-            }
-
             nav ul li a {
+                font-size: 1.4rem;
+                padding: 0.8rem 2rem;
                 display: block;
-                padding: 0.85rem 0.5rem;
-                font-size: 1rem;
-                border-radius: 0;
-                border-bottom: 1px solid rgba(255,255,255,0.05);
-            }
-
-            nav ul li a::after {
-                display: none;
-            }
-
-            .nav-cta {
-                margin-top: 0.5rem;
                 text-align: center;
-                border-radius: 8px !important;
-            }
-
-            /* Hire banner — single line on mobile */
-            .hire-banner {
-                font-size: 0.72rem;
-                padding: 0.5rem 1rem;
-                gap: 0.4rem;
-                flex-wrap: wrap;
-                text-align: center;
-            }
-
-            /* Sections */
-            section {
-                padding: 4rem 0;
-                min-height: auto;
-            }
-
-            #home {
-                min-height: 100svh;
-                padding: 3rem 0 4rem;
-            }
-
-            .container {
-                padding: 0 1.2rem;
             }
 
             /* Hero */
             .hero {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero-visual {
-                display: none;
+                gap: 2.5rem;
             }
 
             .hero-content h1 {
@@ -1040,63 +985,46 @@
             }
 
             .hero-content .subtitle {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
 
-            .hero-content > p {
+            .hero-content p {
                 font-size: 1rem;
-                line-height: 1.75;
-                margin-bottom: 1.5rem;
             }
 
-            /* Open-to tags */
-            .open-to-row {
-                gap: 0.4rem;
-                margin-bottom: 1.5rem;
+            .hero-visual {
+                padding: 2rem;
             }
 
-            .open-tag {
-                font-size: 0.78rem;
-                padding: 0.25rem 0.65rem;
-            }
-
-            /* Contact info chips */
-            .contact-info {
-                flex-direction: column;
-                gap: 0.6rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .contact-item {
-                width: 100%;
-                font-size: 0.92rem;
-            }
-
-            /* Button group */
+            /* Buttons */
             .btn-group {
-                flex-direction: column;
+                flex-wrap: wrap;
                 gap: 0.8rem;
             }
 
             .btn {
-                width: 100%;
-                text-align: center;
-                padding: 0.9rem 1.5rem;
-                font-size: 1rem;
+                padding: 0.85rem 1.8rem;
+                font-size: 0.95rem;
             }
 
-            /* Stats */
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+            /* Contact info */
+            .contact-info {
+                gap: 0.8rem;
             }
 
-            .stat-card {
-                padding: 1.2rem 1rem;
+            .contact-item {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
             }
 
-            .stat-number {
-                font-size: 1.8rem;
+            /* Sections */
+            section {
+                padding: 4rem 0;
+                min-height: unset;
+            }
+
+            .container {
+                padding: 0 1.2rem;
             }
 
             /* Section headers */
@@ -1112,19 +1040,28 @@
                 font-size: 1rem;
             }
 
-            /* Education */
-            .education-card {
-                padding: 1.5rem;
+            /* Stats grid */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
 
-            .degree-title {
-                font-size: 1.3rem;
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            /* Education */
+            .education-card {
+                padding: 1.8rem;
             }
 
             .education-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 0.8rem;
+            }
+
+            .degree-title {
+                font-size: 1.4rem;
             }
 
             /* Timeline */
@@ -1134,199 +1071,149 @@
 
             .timeline-item {
                 padding: 1.5rem;
-                margin-bottom: 1.5rem;
             }
 
-            .timeline-item:hover,
-            .timeline-item:focus-within {
-                transform: none; /* disable translateX on touch */
+            .timeline-item:hover {
+                transform: none;
             }
 
             .timeline-item::before {
-                left: -2.2rem;
+                left: -2.3rem;
                 width: 18px;
                 height: 18px;
-                top: 1.5rem;
-            }
-
-            .timeline-item h3 {
-                font-size: 1.2rem;
-            }
-
-            .timeline-item .company {
-                font-size: 1.05rem;
-            }
-
-            .timeline-item li {
-                font-size: 0.95rem;
-            }
-
-            /* Roles grid */
-            .roles-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-                margin-top: 2rem;
-            }
-
-            .role-card {
-                padding: 1.5rem;
-            }
-
-            .role-card:hover {
-                transform: none; /* no translateY on touch */
             }
 
             /* Projects */
             .projects-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
-                margin-top: 2rem;
             }
 
             .project-card:hover {
                 transform: none;
             }
 
-            .project-header {
-                padding: 1.5rem;
+            /* Roles */
+            .roles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
             }
 
-            .project-body {
-                padding: 1.2rem 1.5rem;
+            .role-card {
+                padding: 1.8rem;
+            }
+
+            .role-card:hover {
+                transform: none;
             }
 
             /* Skills */
             .skills-section {
                 grid-template-columns: 1fr;
                 gap: 1.2rem;
-                margin-top: 2rem;
             }
 
             .skill-category {
-                padding: 1.5rem;
+                padding: 1.8rem;
             }
 
             .skill-category:hover {
                 transform: none;
             }
 
-            /* GitHub grid */
+            /* GitHub */
             .github-grid {
                 grid-template-columns: 1fr;
                 gap: 1.2rem;
-                margin-top: 2rem;
-            }
-
-            .github-card {
-                padding: 1.5rem;
-            }
-
-            .github-card:hover {
-                transform: none;
-            }
-
-            .github-stats {
-                flex-wrap: wrap;
-                gap: 0.8rem;
             }
 
             /* Contact card */
             .contact-card {
-                padding: 1.5rem;
+                padding: 2rem 1.5rem;
             }
 
             .contact-card-inner {
                 flex-direction: column;
-                gap: 1.5rem;
             }
 
             .contact-card-text h3 {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 0.5rem;
             }
 
-            .contact-links {
-                flex-direction: column;
-                gap: 0.6rem;
+            .btn-large {
+                padding: 1.1rem 2rem;
+                font-size: 1rem;
             }
 
-            .contact-link-btn {
-                width: 100%;
-                justify-content: center;
-                padding: 0.75rem 1rem;
+            /* Hire banner */
+            .hire-banner {
+                font-size: 0.72rem;
+                padding: 0.5rem 1rem;
+                flex-wrap: wrap;
+                gap: 0.4rem;
             }
 
-            .contact-card-cta {
-                width: 100%;
-            }
-
-            .btn-hire.btn-large {
-                width: 100%;
-                padding: 1rem 1.5rem;
-                font-size: 1.05rem;
-            }
-
-            /* a11y toggle — move to bottom-left so it doesn't clash with download CV */
+            /* A11y toggle */
             .a11y-toggle {
-                top: auto;
-                bottom: 5.5rem;
-                left: 1rem;
-                right: auto;
-                width: 44px;
-                height: 44px;
-                font-size: 1.3rem;
+                right: 1rem;
+                top: 4.5rem;
+                width: 42px;
+                height: 42px;
+                font-size: 1.2rem;
             }
 
             .accessibility-controls {
-                top: auto;
-                bottom: 9.5rem;
-                left: 1rem;
-                right: auto;
+                right: 1rem;
+                top: 8rem;
             }
 
-            /* Download CV button */
+            /* Download CV */
             .download-cv {
                 bottom: 1rem;
                 right: 1rem;
-                padding: 0.85rem 1.4rem;
+                padding: 0.9rem 1.5rem;
                 font-size: 0.9rem;
-                border-radius: 40px;
             }
 
-            /* Footer */
-            .social-links {
-                gap: 1.2rem;
+            /* Open to row */
+            .open-to-row {
+                gap: 0.4rem;
             }
 
-            .social-links a {
-                width: 50px;
-                height: 50px;
-                font-size: 1.4rem;
+            .open-tag, .role-tag {
+                font-size: 0.78rem;
+                padding: 0.25rem 0.6rem;
             }
         }
 
-        /* ── Very small screens (max 380px) ─────────────────── */
-        @media (max-width: 380px) {
+        @media (max-width: 480px) {
             .hero-content h1 {
                 font-size: 2rem;
             }
 
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
             }
 
             .section-header h2 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
 
-            .hire-banner {
-                font-size: 0.65rem;
+            .education-card,
+            .timeline-item,
+            .role-card,
+            .skill-category {
+                padding: 1.3rem;
             }
 
-            .open-tag {
-                font-size: 0.72rem;
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-link-btn {
+                justify-content: center;
             }
         }
 
