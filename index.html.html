@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Amritpal Singh Kaur — Multilingual Graduate Software Engineer. Enterprise experience at Bank of America, Amadeus & ENI. MSc QMUL 2026. Available Summer 2026.">
+<meta name="keywords" content="Graduate Software Engineer, Cloud Engineer, Cybersecurity, Full-Stack Developer, London, QMUL, Bank of America">
+<meta name="author" content="Amritpal Singh Kaur">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Amritpal Singh Kaur — Graduate Software Engineer">
+<meta property="og:description" content="MSc CS · Bank of America · Amadeus · ENI · London · Available Summer 2026">
+<meta property="og:type" content="website">
+
+<title>APSK — Amritpal Singh Kaur · Graduate Software Engineer</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Favicon (replace with your own .ico or .png) -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<!-- Ambient background orbs -->
+<div class="orb orb-1" aria-hidden="true"></div>
+<div class="orb orb-2" aria-hidden="true"></div>
+<div class="orb orb-3" aria-hidden="true"></div>
+
+<!-- Scroll progress bar -->
+<div class="scroll-bar" id="scrollBar" role="progressbar" aria-label="Page scroll progress"></div>
+
+<!-- Skip to main content (accessibility) -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Floating availability badge -->
+<div class="avail-badge" aria-label="Job availability status">
+  <span class="avail-dot" aria-hidden="true"></span>
+  Available · Summer 2026
+</div>
+
+<!-- Accessibility panel toggle -->
+<button class="a11y-toggle" id="a11yToggle" aria-label="Accessibility options" aria-expanded="false">♿</button>
+<div class="a11y-panel" id="a11yPanel" role="region" aria-label="Accessibility options">
+  <button class="a11y-btn" id="highContrastBtn">Toggle High Contrast</button>
+  <button class="a11y-btn" id="fontIncBtn">Increase Font</button>
+  <button class="a11y-btn" id="fontDecBtn">Decrease Font</button>
+  <button class="a11y-btn" id="fontResetBtn">Reset Font</button>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════════════ -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#home" class="logo" aria-label="APSK — back to top">APSK</a>
+    <button class="nav-hamburger" id="navHamburger"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navMenu" role="list">
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#education"  class="nav-link">Education</a></li>
+      <li><a href="#roles"      class="nav-link">Roles</a></li>
+      <li><a href="#projects"   class="nav-link">Projects</a></li>
+      <li><a href="#github"     class="nav-link">GitHub</a></li>
+      <li><a href="#skills"     class="nav-link">Skills</a></li>
+      <li class="nav-cta"><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════ -->
+<section id="home" aria-labelledby="hero-heading">
+  <div class="container">
+    <div class="hero-grid hero-grid--solo">
+
+      <!-- Left: Content -->
+      <div class="hero-content fade-in">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-dot" aria-hidden="true"></span>
+          Multilingual Software Engineer · London, UK
+        </div>
+        <h1 class="hero-name" id="hero-heading">
+          Amritpal<br><span>Singh Kaur</span>
+        </h1>
+        <p class="hero-role">Graduate Software Engineer &amp; MSc CS Student</p>
+        <p class="hero-bio">
+          MSc Advanced Computer Science at <strong>Queen Mary University of London</strong> (2026),
+          BSc 2:1 from Staffordshire. Enterprise IT experience at <strong>Bank of America</strong>,
+          <strong>Amadeus</strong> and <strong>ENI</strong>. I build in cloud, security &amp; full-stack —
+          and I <span class="accent">speak 5 languages</span>, which matters in global teams.
+        </p>
+
+        <!-- ★ Availability timeline (Gemini feedback #3) -->
+        <div class="hero-start-badge" aria-label="Availability">
+          🟢 Seeking Graduate Roles · Available Summer 2026
+        </div>
+
+        <div class="hero-meta">
+          <span class="meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,12 2,6"/>
+            </svg>
+            <a href="mailto:ap.singhkaur@gmail.com">ap.singhkaur@gmail.com</a>
+          </span>
+          <span class="meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 01.25 2.2 2 2 0 012.23 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.38 7.5a16 16 0 006.12 6.12l.58-1.08a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <a href="tel:+447722145765">07722 145 765</a>
+          </span>
+          <span class="meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            London, UK · Open to Remote
+          </span>
+        </div>
+
+        <div class="hero-btns">
+          <a href="https://github.com/Amrit004" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/amritpal-singh-kaur-b54b9a1b1" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+          <a href="#contact" class="btn btn-ghost">Contact Me →</a>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════════
+     PROFESSIONAL EXPERIENCE  (moved up — "Golden Ticket")
+══════════════════════════════════════════════════ -->
+<section id="experience" aria-labelledby="experience-heading">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Golden Ticket</p>
+      <h2 class="section-title" id="experience-heading">Professional Experience</h2>
+      <p class="section-subtitle">Enterprise IT exposure across financial services, travel tech and energy.</p>
+    </div>
+
+    <div class="timeline" role="list">
+
+      <!-- Bank of America — FEATURED -->
+      <article class="timeline-item featured fade-left" role="listitem">
+        <div class="timeline-header">
+          <div>
+            <h3 class="timeline-role">Deployment / Breakfix Engineer</h3>
+            <div class="timeline-company">🏦 Bank of America</div>
+          </div>
+        </div>
+        <ul class="timeline-body">
+          <li>Critical enterprise desktop support in a secure, heavily-regulated financial environment ensuring compliance with industry standards and internal security protocols</li>
+          <li>Diagnosed and resolved complex hardware and software issues, minimising downtime and maintaining operational efficiency across multiple business units</li>
+          <li>Key role in large-scale deployment initiatives and comprehensive asset management programs, supporting hundreds of end-users</li>
+          <li>Collaborated cross-functionally to implement security patches and system updates per financial industry regulations</li>
+        </ul>
+        <div class="tag-row">
+          <span class="chip">Enterprise Systems</span>
+          <span class="chip">Asset Management</span>
+          <span class="chip">Financial Services</span>
+          <span class="chip">Compliance</span>
+          <span class="chip">Security</span>
+        </div>
+      </article>
+
+      <!-- Amadeus -->
+      <article class="timeline-item fade-right" role="listitem" style="transition-delay:0.1s">
+        <div class="timeline-header">
+          <div>
+            <h3 class="timeline-role">Field Support Technician (Level 2)</h3>
+            <div class="timeline-company">✈️ Amadeus</div>
+          </div>
+        </div>
+        <ul class="timeline-body">
+          <li>Secure laptop and mobile device replacements ensuring seamless transitions in a global travel technology environment</li>
+          <li>Advanced system configurations and enterprise application installations adhering to strict security protocols</li>
+          <li>Escalation support for complex technical issues, collaborating with cross-functional teams efficiently</li>
+          <li>Maintained detailed documentation of system configurations and troubleshooting procedures</li>
+        </ul>
+        <div class="tag-row">
+          <span class="chip">Field Support</span>
+          <span class="chip">System Configuration</span>
+          <span class="chip">Mobile Deployment</span>
+          <span class="chip">Security</span>
+          <span class="chip">Documentation</span>
+        </div>
+      </article>
+
+      <!-- ENI -->
+      <article class="timeline-item fade-left" role="listitem" style="transition-delay:0.2s">
+        <div class="timeline-header">
+          <div>
+            <h3 class="timeline-role">IT Technician / Support</h3>
+            <div class="timeline-company">⚡ ENI</div>
+          </div>
+        </div>
+        <ul class="timeline-body">
+          <li>Frontline technical support for hardware, software and network connectivity maintaining high system availability</li>
+          <li>Proactively monitored enterprise system uptime, identifying and resolving issues before operational impact</li>
+          <li>Documented technical procedures and troubleshooting guides to improve team knowledge base</li>
+          <li>Assisted with IT infrastructure maintenance and upgrades with minimal disruption to operations</li>
+        </ul>
+        <div class="tag-row">
+          <span class="chip">Technical Support</span>
+          <span class="chip">System Maintenance</span>
+          <span class="chip">Infrastructure</span>
+          <span class="chip">Documentation</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════════
+     EDUCATION
+══════════════════════════════════════════════════ -->
+<section id="education" aria-labelledby="education-heading">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Academic Background</p>
+      <h2 class="section-title" id="education-heading">Education</h2>
+      <p class="section-subtitle">Computer science foundations built for the modern enterprise.</p>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-card current fade-in" style="transition-delay:0.1s">
+        <div class="edu-degree">MSc Advanced Computer Science</div>
+        <div class="edu-uni">Queen Mary University of London</div>
+        <div class="edu-dates">2025 – 2026</div>
+        <div class="edu-grade">In Progress</div>
+        <p class="edu-desc">Advanced studies in cloud architecture, AI, security protocols and distributed systems. Research-led projects and practical implementations in cutting-edge computing technologies.</p>
+        <div class="tag-row">
+          <span class="chip">Cloud Computing</span>
+          <span class="chip">Machine Learning</span>
+          <span class="chip">Security &amp; Auth</span>
+          <span class="chip">Data Analytics</span>
+          <span class="chip">Functional Programming</span>
+        </div>
+      </div>
+
+      <div class="edu-card fade-in" style="transition-delay:0.2s">
+        <div class="edu-degree">BSc (Hons) Computer Science</div>
+        <div class="edu-uni">Staffordshire University</div>
+        <div class="edu-dates">September 2022 – May 2025</div>
+        <div class="edu-grade">2:1 Honours</div>
+        <p class="edu-desc">3-year programme covering software engineering, cloud computing, AI, cybersecurity and full-stack development with strong performance across networking, databases and enterprise systems.</p>
+        <div class="tag-row">
+          <span class="chip">Enterprise Cloud</span>
+          <span class="chip">Web &amp; AI</span>
+          <span class="chip">Mobile Dev</span>
+          <span class="chip">Databases</span>
+          <span class="chip">Networking</span>
+          <span class="chip">Cybersecurity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════════
+     TARGET ROLES  (tabbed — Gemini feedback #1)
+══════════════════════════════════════════════════ -->
+<section id="roles" aria-labelledby="roles-heading">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Open To</p>
+      <h2 class="section-title" id="roles-heading">Roles I'm Targeting</h2>
+      <p class="section-subtitle">Graduate &amp; entry-level positions across software engineering, cloud, security and data.</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="roles-tabs fade-in" role="tablist" aria-label="Filter roles by category">
+      <button class="tab-btn active" data-filter="all"         role="tab" aria-selected="true" >All Roles</button>
+      <button class="tab-btn"        data-filter="engineering" role="tab" aria-selected="false">Software Engineering</button>
+      <button class="tab-btn"        data-filter="cloud"       role="tab" aria-selected="false">Cloud &amp; Security</button>
+      <button class="tab-btn"        data-filter="data"        role="tab" aria-selected="false">Data &amp; AI</button>
+      <button class="tab-btn"        data-filter="other"       role="tab" aria-selected="false">Other</button>
+    </div>
+
+    <div class="roles-grid" id="rolesGrid">
+
+      <article class="role-card visible" data-category="engineering" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">💻</span>
+        <h3 class="role-title">Graduate Software Engineer</h3>
+        <p class="role-desc">Building backend services, REST APIs and web applications using Java, JavaScript, Python or C#. Comfortable with Git, agile workflows and clean, tested code.</p>
+        <div class="role-skills">
+          <span class="role-skill">Java</span><span class="role-skill">Python</span>
+          <span class="role-skill">JavaScript</span><span class="role-skill">REST APIs</span>
+          <span class="role-skill">Agile</span>
+        </div>
+      </article>
+
+      <article class="role-card visible" data-category="engineering" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">🌐</span>
+        <h3 class="role-title">Junior Full-Stack Developer</h3>
+        <p class="role-desc">Responsive, accessible web apps from frontend to database. Experience with React, Node.js, HTML/CSS, REST APIs and cloud deployments.</p>
+        <div class="role-skills">
+          <span class="role-skill">React</span><span class="role-skill">Node.js</span>
+          <span class="role-skill">HTML/CSS</span><span class="role-skill">PostgreSQL</span>
+          <span class="role-skill">REST</span>
+        </div>
+      </article>
+
+      <article class="role-card visible" data-category="engineering" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">📱</span>
+        <h3 class="role-title">Android / Mobile Developer</h3>
+        <p class="role-desc">Native and cross-platform mobile apps. Core module in mobile dev plus PWAs and Android apps with offline-first architecture.</p>
+        <div class="role-skills">
+          <span class="role-skill">Android Studio</span><span class="role-skill">Java</span>
+          <span class="role-skill">PWA</span><span class="role-skill">Service Workers</span>
+        </div>
+      </article>
+
+      <article class="role-card visible" data-category="cloud" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">☁️</span>
+        <h3 class="role-title">Junior Cloud / DevOps Engineer</h3>
+        <p class="role-desc">Cloud infrastructure on AWS, automating deployments and working with containers. Hands-on with EC2, S3, Lambda, IAM, Docker and CI/CD pipelines.</p>
+        <div class="role-skills">
+          <span class="role-skill">AWS</span><span class="role-skill">Docker</span>
+          <span class="role-skill">Linux</span><span class="role-skill">CI/CD</span>
+          <span class="role-skill">Kubernetes</span>
+        </div>
+      </article>
+
+      <article class="role-card visible" data-category="cloud" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">🔒</span>
+        <h3 class="role-title">Junior Cybersecurity Analyst</h3>
+        <p class="role-desc">Threat analysis, incident response and security controls. Background in network security, IAM, encryption and regulated financial environments (BofA).</p>
+        <div class="role-skills">
+          <span class="role-skill">Network Security</span><span class="role-skill">IAM</span>
+          <span class="role-skill">Encryption</span><span class="role-skill">Compliance</span>
+          <span class="role-skill">SIEM</span>
+        </div>
+      </article>
+
+      <article class="role-card visible" data-category="data" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">📊</span>
+        <h3 class="role-title">Data Analyst / Junior Data Engineer</h3>
+        <p class="role-desc">Cleaning, analysing and visualising data to support business decisions. Python (NumPy, Pandas), SQL, statistical analysis and dashboard building.</p>
+        <div class="role-skills">
+          <span class="role-skill">Python</span><span class="role-skill">SQL</span>
+          <span class="role-skill">Pandas</span><span class="role-skill">Data Viz</span>
+          <span class="role-skill">Analytics</span>
+        </div>
+      </article>
+
+      <article class="role-card visible" data-category="data" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">🤖</span>
+        <h3 class="role-title">Junior ML / AI Engineer</h3>
+        <p class="role-desc">Developing and evaluating machine learning models for classification, prediction and NLP. MSc ML modules underpin applied project work with Scikit-learn.</p>
+        <div class="role-skills">
+          <span class="role-skill">Scikit-learn</span><span class="role-skill">NLP</span>
+          <span class="role-skill">Pandas</span><span class="role-skill">Model Evaluation</span>
+        </div>
+      </article>
+
+      <!-- Hidden extras (revealed by "Show all" button) -->
+      <article class="role-card extra-role" data-category="other" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">🖥️</span>
+        <h3 class="role-title">IT Graduate Scheme / Systems Analyst</h3>
+        <p class="role-desc">Enterprise IT support and systems analysis. Proven in fast-paced environments at BofA, Amadeus and ENI — deployments, breakfix, compliance and documentation.</p>
+        <div class="role-skills">
+          <span class="role-skill">Enterprise IT</span><span class="role-skill">ITIL</span>
+          <span class="role-skill">Windows Server</span><span class="role-skill">Linux</span>
+        </div>
+      </article>
+
+      <article class="role-card extra-role" data-category="engineering" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">🗄️</span>
+        <h3 class="role-title">Junior Database Administrator</h3>
+        <p class="role-desc">Designing and maintaining relational databases, writing optimised queries and ensuring data integrity. Solid grounding in SQL, MySQL, PostgreSQL and ER modelling.</p>
+        <div class="role-skills">
+          <span class="role-skill">MySQL</span><span class="role-skill">PostgreSQL</span>
+          <span class="role-skill">SQL</span><span class="role-skill">ER Modelling</span>
+        </div>
+      </article>
+
+      <article class="role-card extra-role" data-category="other" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">🏦</span>
+        <h3 class="role-title">FinTech / Banking Technology Graduate</h3>
+        <p class="role-desc">Technology within financial services — trading tools, compliance systems or internal platforms. Direct regulated-industry experience from Bank of America sets me apart.</p>
+        <div class="role-skills">
+          <span class="role-skill">Financial Services</span><span class="role-skill">Compliance</span>
+          <span class="role-skill">Enterprise Systems</span><span class="role-skill">Java</span>
+        </div>
+      </article>
+
+      <article class="role-card extra-role" data-category="other" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">🌍</span>
+        <h3 class="role-title">Multilingual Tech Roles</h3>
+        <p class="role-desc">International or client-facing tech roles where speaking 5 languages is a genuine asset — especially at global tech firms, consulting or support functions.</p>
+        <div class="role-skills">
+          <span class="role-skill">English</span><span class="role-skill">Spanish</span>
+          <span class="role-skill">Catalan</span><span class="role-skill">Punjabi</span>
+          <span class="role-skill">Hindi</span>
+        </div>
+      </article>
+
+      <article class="role-card extra-role" data-category="engineering" role="tabpanel">
+        <span class="role-icon" aria-hidden="true">🧪</span>
+        <h3 class="role-title">QA / Test Engineer (Graduate)</h3>
+        <p class="role-desc">Software quality through testing strategies, writing test cases and identifying defects. Strong software engineering fundamentals across multiple languages.</p>
+        <div class="role-skills">
+          <span class="role-skill">Testing</span><span class="role-skill">Debugging</span>
+          <span class="role-skill">Agile</span><span class="role-skill">JIRA</span>
+        </div>
+      </article>
+
+    </div>
+
+    <button class="show-more-btn" id="showMoreBtn" aria-expanded="false">
+      + Show all 12 roles
+    </button>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════════
+     PROJECTS  (hardcoded — Gemini feedback #2)
+══════════════════════════════════════════════════ -->
+<section id="projects" aria-labelledby="projects-heading">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Built by Me</p>
+      <h2 class="section-title" id="projects-heading">Featured Projects</h2>
+      <p class="section-subtitle">Proof of competency — applied security, cloud and full-stack development.</p>
+    </div>
+
+    <div class="projects-grid" role="list">
+
+      <article class="project-card fade-in" role="listitem">
+        <div class="project-preview preview-cipher" aria-label="CipherOS preview" aria-hidden="true">🔒</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <h3 class="project-name">CipherOS</h3>
+            <span class="project-type">Cryptography Toolkit</span>
+          </div>
+          <p class="project-desc">Browser-based cryptographic toolkit with retro CRT terminal aesthetic. AES-256 encryption, SHA/MD5 hashing, JWT decoder, password strength analyser and key generator using Web Crypto API.</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="project-tag">Web Crypto API</span>
+              <span class="project-tag">Cryptography</span>
+              <span class="project-tag">Vanilla JS</span>
+            </div>
+            <div class="project-links">
+              <!-- UPDATE: replace href with actual live demo and repo URLs -->
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link live" aria-label="CipherOS live demo">↗ Demo</a>
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="CipherOS source code">Code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card fade-in" role="listitem" style="transition-delay:0.1s">
+        <div class="project-preview preview-netscan" aria-hidden="true">🌐</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <h3 class="project-name">NetScan Pro</h3>
+            <span class="project-type">Network Security Tool</span>
+          </div>
+          <p class="project-desc">Interactive network vulnerability scanner simulation demonstrating Nmap/Nessus concepts. 4 scan modes, CVE database with 12 vulnerabilities including Log4Shell and EternalBlue, OS fingerprinting and security reporting.</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="project-tag">Network Security</span>
+              <span class="project-tag">CVE Database</span>
+              <span class="project-tag">Port Scanning</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link live" aria-label="NetScan Pro live demo">↗ Demo</a>
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="NetScan Pro source code">Code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card fade-in" role="listitem" style="transition-delay:0.2s">
+        <div class="project-preview preview-wandr" aria-hidden="true">✈️</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <h3 class="project-name">Wandr</h3>
+            <span class="project-type">AI Travel PWA</span>
+          </div>
+          <p class="project-desc">Progressive Web App with client-side AI matching engine for personalised travel recommendations. Natural language queries, budget planning, offline support via service workers — installable on mobile/desktop.</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="project-tag">PWA</span>
+              <span class="project-tag">AI Matching</span>
+              <span class="project-tag">Offline-First</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link live" aria-label="Wandr live demo">↗ Demo</a>
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Wandr source code">Code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card fade-in" role="listitem" style="transition-delay:0.3s">
+        <div class="project-preview preview-codeflow" aria-hidden="true">📋</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <h3 class="project-name">CodeFlow</h3>
+            <span class="project-type">Project Management</span>
+          </div>
+          <p class="project-desc">Full-stack Kanban app with JWT authentication, drag-and-drop functionality and localStorage persistence. Task management, activity logging, multi-project support — no frameworks.</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="project-tag">JWT Auth</span>
+              <span class="project-tag">Kanban</span>
+              <span class="project-tag">Full-Stack</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link live" aria-label="CodeFlow live demo">↗ Demo</a>
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="CodeFlow source code">Code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card fade-in" role="listitem" style="transition-delay:0.1s">
+        <div class="project-preview preview-devmetrics" aria-hidden="true">📊</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <h3 class="project-name">DevMetrics</h3>
+            <span class="project-type">GitHub Analytics</span>
+          </div>
+          <p class="project-desc">Real-time GitHub analytics consuming the REST API. Language distribution charts, contribution heatmap, repository metrics and a computed developer score (0–100) with Canvas visualisations.</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="project-tag">GitHub API</span>
+              <span class="project-tag">Data Viz</span>
+              <span class="project-tag">REST API</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link live" aria-label="DevMetrics live demo">↗ Demo</a>
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="DevMetrics source code">Code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card fade-in" role="listitem" style="transition-delay:0.2s">
+        <div class="project-preview preview-securevault" aria-hidden="true">🛡️</div>
+        <div class="project-body">
+          <div class="project-meta">
+            <h3 class="project-name">SecureVault</h3>
+            <span class="project-type">Cloud Security Dashboard</span>
+          </div>
+          <p class="project-desc">Real-time cloud security monitoring simulating an AWS SOC. Live threat feed, world threat map, AWS region health, IAM activity charts and compliance scoring. Reflects BofA enterprise security experience.</p>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span class="project-tag">Cloud Security</span>
+              <span class="project-tag">AWS</span>
+              <span class="project-tag">SOC Dashboard</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link live" aria-label="SecureVault live demo">↗ Demo</a>
+              <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="SecureVault source code">Code</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════════
+     GITHUB LIVE REPOS
+══════════════════════════════════════════════════ -->
+<section id="github" aria-labelledby="github-heading">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Open Source</p>
+      <h2 class="section-title" id="github-heading">GitHub Repositories</h2>
+      <p class="section-subtitle">Live data pulled from the GitHub API — my public repos at a glance.</p>
+    </div>
+
+    <div class="gh-controls fade-in" style="transition-delay:0.1s">
+      <button class="gh-sort-btn active" data-sort="pushed">Recent</button>
+      <button class="gh-sort-btn" data-sort="stars">Most Starred</button>
+    </div>
+
+    <div id="ghGrid" class="gh-grid" role="list" aria-live="polite" aria-label="GitHub repositories"></div>
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════════
+     SKILLS
+══════════════════════════════════════════════════ -->
+<section id="skills" aria-labelledby="skills-heading">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Toolbox</p>
+      <h2 class="section-title" id="skills-heading">Technical Skills</h2>
+      <p class="section-subtitle">Comprehensive expertise across the modern technology stack.</p>
+    </div>
+
+    <div class="skills-container fade-in" style="transition-delay:0.1s">
+
+      <div class="skill-group">
+        <div class="skill-group-header"><span>💻</span> Programming Languages</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">Java</span>
+          <span class="skill-pill primary">Python</span>
+          <span class="skill-pill primary">JavaScript (ES6+)</span>
+          <span class="skill-pill">C# (.NET)</span>
+          <span class="skill-pill">Node.js</span>
+          <span class="skill-pill">HTML5 &amp; CSS3</span>
+          <span class="skill-pill">RESTful APIs</span>
+          <span class="skill-pill">Functional Programming</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header"><span>☁️</span> Cloud &amp; DevOps</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">AWS (EC2, S3, Lambda, IAM)</span>
+          <span class="skill-pill primary">Docker</span>
+          <span class="skill-pill">Cloud Architecture</span>
+          <span class="skill-pill">Microservices</span>
+          <span class="skill-pill">Kubernetes (basics)</span>
+          <span class="skill-pill">Linux/Unix</span>
+          <span class="skill-pill">Windows Server</span>
+          <span class="skill-pill">CI/CD</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header"><span>🗄️</span> Databases</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">MySQL</span>
+          <span class="skill-pill primary">PostgreSQL</span>
+          <span class="skill-pill">Database Design</span>
+          <span class="skill-pill">ER Modelling</span>
+          <span class="skill-pill">Query Optimisation</span>
+          <span class="skill-pill">Data Structures &amp; Algorithms</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header"><span>🤖</span> AI &amp; Machine Learning</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">Scikit-learn</span>
+          <span class="skill-pill primary">Pandas / NumPy</span>
+          <span class="skill-pill">NLP</span>
+          <span class="skill-pill">Statistical Analysis</span>
+          <span class="skill-pill">Predictive Modelling</span>
+          <span class="skill-pill">Model Evaluation</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header"><span>🔒</span> Security</div>
+        <div class="skill-pills">
+          <span class="skill-pill primary">Network Security</span>
+          <span class="skill-pill primary">IAM</span>
+          <span class="skill-pill">Encryption</span>
+          <span class="skill-pill">Authentication &amp; Authorisation</span>
+          <span class="skill-pill">Secure Design Patterns</span>
+          <span class="skill-pill">Compliance (FinSec)</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-header"><span>📱</span> Web &amp; Mobile</div>
+        <div class="skill-pills">
+          <span class="skill-pill">React</span>
+          <span class="skill-pill">Progressive Web Apps</span>
+          <span class="skill-pill">Android Development</span>
+          <span class="skill-pill">Responsive Design</span>
+          <span class="skill-pill">Accessibility (WCAG)</span>
+          <span class="skill-pill">Performance Optimisation</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Languages highlight — Gemini feedback #6 -->
+    <div class="languages-highlight fade-in" style="transition-delay:0.2s">
+      <h3 class="lang-highlight-title">🌍 Multilingual Advantage</h3>
+      <p class="lang-highlight-sub">Fluency in 5 languages is a genuine differentiator for global teams, client-facing tech roles and international firms.</p>
+      <div class="lang-items">
+        <div class="lang-item">
+          <span class="lang-flag" aria-hidden="true">🇬🇧</span>
+          <div><div class="lang-name">English</div><div class="lang-level">Native</div></div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag" aria-hidden="true">🇪🇸</span>
+          <div><div class="lang-name">Spanish</div><div class="lang-level">Native</div></div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag" aria-hidden="true">🏴</span>
+          <div><div class="lang-name">Catalan</div><div class="lang-level">Native</div></div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag" aria-hidden="true">🇮🇳</span>
+          <div><div class="lang-name">Punjabi</div><div class="lang-level">Native</div></div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-flag" aria-hidden="true">🇮🇳</span>
+          <div><div class="lang-name">Hindi</div><div class="lang-level">Professional</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<!-- ══════════════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════════════ -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="fade-in" style="text-align:center">
+      <p class="section-label" style="justify-content:center">Get In Touch</p>
+      <h2 class="section-title" id="contact-heading" style="text-align:center">Let's Work Together</h2>
+      <p class="section-subtitle" style="margin:0 auto;text-align:center">Looking for a driven graduate who hits the ground running? I'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-card fade-in" style="transition-delay:0.1s">
+      <h3 class="contact-name">Amritpal Singh Kaur</h3>
+      <p class="contact-tagline">
+        MSc CS (QMUL, 2026) · BSc 2:1 · Enterprise background at Bank of America, Amadeus &amp; ENI
+        · London-based, open to remote · Speaks 5 languages
+      </p>
+      <div class="contact-links">
+        <a href="mailto:ap.singhkaur@gmail.com" class="contact-btn primary">📧 Email Me</a>
+        <a href="tel:+447722145765" class="contact-btn">📱 07722 145 765</a>
+        <a href="https://linkedin.com/in/amritpal-singh-kaur-b54b9a1b1" target="_blank" rel="noopener noreferrer" class="contact-btn">💼 LinkedIn</a>
+        <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <div class="avail-info">
+        🟢 Actively seeking Graduate &amp; Entry-Level roles · Available Summer 2026 (part-time/contract from now) · London &amp; Remote
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#home" class="footer-logo" aria-label="Back to top">APSK</a>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/amritpal-singh-kaur-b54b9a1b1" target="_blank" rel="noopener noreferrer">L
