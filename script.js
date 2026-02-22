@@ -1,274 +1,345 @@
-        // Accessibility Controls
-        const a11yToggle = document.getElementById('a11yToggle');
-        const a11yControls = document.getElementById('a11yControls');
-        const highContrastBtn = document.getElementById('highContrastBtn');
-        const increaseFontBtn = document.getElementById('increaseFontBtn');
-        const decreaseFontBtn = document.getElementById('decreaseFontBtn');
-        const resetFontBtn = document.getElementById('resetFontBtn');
+/* ══════════════════════════════════════════════════
+   APSK Portfolio — script.js
+   Redesigned 2026
+══════════════════════════════════════════════════ */
 
-        let fontSize = 100;
+(function () {
+    'use strict';
 
-        a11yToggle.addEventListener('click', () => {
-            a11yControls.classList.toggle('hidden');
-            const isExpanded = !a11yControls.classList.contains('hidden');
-            a11yToggle.setAttribute('aria-expanded', isExpanded);
+    /* ── Scroll Progress Bar ─────────────────────── */
+    const scrollBar = document.getElementById('scrollBar');
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = total > 0 ? (scrolled / total) * 100 : 0;
+        scrollBar.style.width = pct + '%';
+        scrollBar.setAttribute('aria-valuenow', Math.round(pct));
+    }, { passive: true });
+
+    /* ── Smooth Scroll ───────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
+            // close mobile nav if open
+            navMenu.classList.remove('open');
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
         });
+    });
 
-        highContrastBtn.addEventListener('click', () => {
-            document.body.classList.toggle('high-contrast');
-            const isPressed = document.body.classList.contains('high-contrast');
-            highContrastBtn.setAttribute('aria-pressed', isPressed);
-        });
+    /* ── Mobile Hamburger Nav ────────────────────── */
+    const hamburger = document.getElementById('hamburger');
+    const navMenu   = document.getElementById('navMenu');
 
-        increaseFontBtn.addEventListener('click', () => {
-            fontSize = Math.min(fontSize + 10, 150);
-            document.documentElement.style.fontSize = fontSize + '%';
-        });
+    hamburger.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
 
-        decreaseFontBtn.addEventListener('click', () => {
-            fontSize = Math.max(fontSize - 10, 80);
-            document.documentElement.style.fontSize = fontSize + '%';
-        });
+    // Close nav on outside click
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove('open');
+            hamburger.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
+    });
 
-        resetFontBtn.addEventListener('click', () => {
-            fontSize = 100;
-            document.documentElement.style.fontSize = '100%';
-        });
+    /* ── Accessibility Panel ─────────────────────── */
+    const a11yToggle    = document.getElementById('a11yToggle');
+    const a11yControls  = document.getElementById('a11yControls');
+    const highContrastBtn = document.getElementById('highContrastBtn');
+    const increaseFontBtn = document.getElementById('increaseFontBtn');
+    const decreaseFontBtn = document.getElementById('decreaseFontBtn');
+    const resetFontBtn    = document.getElementById('resetFontBtn');
+    let fontSize = 100;
 
-        // Scroll Indicator
-        window.addEventListener('scroll', () => {
-            const scrollIndicator = document.getElementById('scrollIndicator');
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
-            scrollIndicator.style.width = scrollPercent + '%';
-            scrollIndicator.setAttribute('aria-valuenow', Math.round(scrollPercent));
-        });
+    a11yToggle.addEventListener('click', () => {
+        const hidden = a11yControls.classList.toggle('hidden');
+        a11yToggle.setAttribute('aria-expanded', String(!hidden));
+    });
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    target.setAttribute('tabindex', '-1');
-                    target.focus();
-                }
-            });
-        });
+    highContrastBtn.addEventListener('click', () => {
+        document.body.classList.toggle('high-contrast');
+        const pressed = document.body.classList.contains('high-contrast');
+        highContrastBtn.setAttribute('aria-pressed', String(pressed));
+    });
 
-        // Fetch GitHub Repositories
-        async function fetchGitHubRepos() {
-            const username = 'Amrit004';
-            const projectsContainer = document.getElementById('githubProjects');
+    increaseFontBtn.addEventListener('click', () => {
+        fontSize = Math.min(fontSize + 10, 150);
+        document.documentElement.style.fontSize = fontSize + '%';
+    });
 
-            // Helper: fetch with timeout
-            function fetchWithTimeout(url, options = {}, ms = 8000) {
-                const controller = new AbortController();
-                const timer = setTimeout(() => controller.abort(), ms);
-                return fetch(url, { ...options, signal: controller.signal })
-                    .finally(() => clearTimeout(timer));
+    decreaseFontBtn.addEventListener('click', () => {
+        fontSize = Math.max(fontSize - 10, 80);
+        document.documentElement.style.fontSize = fontSize + '%';
+    });
+
+    resetFontBtn.addEventListener('click', () => {
+        fontSize = 100;
+        document.documentElement.style.fontSize = '100%';
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !a11yControls.classList.contains('hidden')) {
+            a11yControls.classList.add('hidden');
+            a11yToggle.setAttribute('aria-expanded', 'false');
+            a11yToggle.focus();
+        }
+    });
+
+    /* ── Intersection Observer — Fade In on Scroll ─ */
+    const fadeEls = document.querySelectorAll(
+        '.edu-card, .tl-card, .role-card, .proj-card, .skill-cat, .github-card, .ach-item'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    fadeEls.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+
+    /* Also animate sections */
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity   = '0';
+        section.style.transform = 'translateY(24px)';
+        section.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+        observer.observe(section);
+    });
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity   = '1';
+                entry.target.style.transform = 'translateY(0)';
+                sectionObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('section').forEach(s => sectionObserver.observe(s));
+
+    /* ── Animate stat numbers (count-up) ─────────── */
+    function animateNumber(el, target, isFloat) {
+        const duration = 1400;
+        const start    = performance.now();
+        const isAWS    = el.dataset.val === 'AWS';
+        if (isAWS) return; // Already text
+
+        function step(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(eased * target);
+            el.querySelector('.ach-num').textContent =
+                current + (el.dataset.plus ? '+' : '');
+            if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    const achObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el  = entry.target;
+                const val = el.dataset.val;
+                const plus = el.dataset.plus;
+                if (!val || isNaN(val)) return;
+                animateNumber(el, parseInt(val), false);
+                achObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.ach-item').forEach(item => {
+        achObserver.observe(item);
+    });
+
+    /* ── GitHub Repositories ─────────────────────── */
+    async function fetchGitHubRepos() {
+        const username = 'Amrit004';
+        const container = document.getElementById('githubProjects');
+        if (!container) return;
+
+        function fetchWithTimeout(url, opts = {}, ms = 8000) {
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), ms);
+            return fetch(url, { ...opts, signal: controller.signal })
+                   .finally(() => clearTimeout(timer));
+        }
+
+        try {
+            const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100&type=owner`;
+            let response;
 
             try {
-                const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100&type=owner`;
-
-                let response;
-                try {
-                    // Primary: direct GitHub API (works in most browsers — GitHub allows CORS)
-                    response = await fetchWithTimeout(apiUrl, {
-                        headers: {
-                            'Accept': 'application/vnd.github.v3+json',
-                            'X-GitHub-Api-Version': '2022-11-28'
-                        }
-                    });
-                } catch (primaryErr) {
-                    // Fallback: use a simple JSON proxy that reliably works
-                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
-                    const proxyResponse = await fetchWithTimeout(proxyUrl, {}, 10000);
-                    if (!proxyResponse.ok) throw new Error('Both fetch methods failed');
-                    const proxyData = await proxyResponse.json();
-                    // allorigins wraps the response in { contents: "..." }
-                    response = { ok: true, json: async () => JSON.parse(proxyData.contents) };
-                }
-
-                if (!response.ok && response.status !== undefined) {
-                    if (response.status === 403) throw new Error('GitHub rate limit reached. Please visit GitHub directly.');
-                    throw new Error(`GitHub API error: ${response.status}`);
-                }
-
-                let repos = await response.json();
-
-                // Filter forks, sort by updated date
-                repos = repos.filter(r => !r.fork)
-                             .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-
-                if (repos.length === 0) {
-                    projectsContainer.innerHTML = `
-                        <p style="text-align:center;color:var(--text-muted);font-size:1.1rem;grid-column:1/-1;">
-                            No public repositories found yet. <a href="https://github.com/${username}" target="_blank" rel="noopener noreferrer" style="color:var(--primary)">Visit GitHub profile →</a>
-                        </p>`;
-                    return;
-                }
-
-                projectsContainer.innerHTML = repos.map(repo => `
-                    <article class="github-card" role="listitem">
-                        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.8rem;">
-                            <h4 style="margin:0">${repo.name.replace(/-/g, ' ').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h4>
-                            ${repo.language ? `<span class="tag" style="flex-shrink:0;font-size:0.78rem">${repo.language}</span>` : ''}
-                        </div>
-                        <p style="color:var(--text-muted);margin-bottom:1rem;font-size:0.95rem;line-height:1.6;">${repo.description || 'A project showcasing practical development skills.'}</p>
-                        <div class="github-stats">
-                            <div class="github-stat" aria-label="${repo.stargazers_count} stars">
-                                <span aria-hidden="true">⭐</span>
-                                <span>${repo.stargazers_count}</span>
-                            </div>
-                            <div class="github-stat" aria-label="${repo.forks_count} forks">
-                                <span aria-hidden="true">🍴</span>
-                                <span>${repo.forks_count}</span>
-                            </div>
-                            <div class="github-stat" aria-label="Updated ${new Date(repo.updated_at).toLocaleDateString('en-GB')}">
-                                <span aria-hidden="true">📅</span>
-                                <span>${new Date(repo.updated_at).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' })}</span>
-                            </div>
-                        </div>
-                        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" 
-                           style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1.2rem;color:var(--primary);text-decoration:none;font-weight:600;font-size:0.95rem;border:1px solid var(--primary);padding:0.4rem 1rem;border-radius:8px;transition:all 0.2s;"
-                           onmouseover="this.style.background='rgba(16,185,129,0.1)'" 
-                           onmouseout="this.style.background='transparent'">
-                            View on GitHub <span aria-hidden="true">→</span>
-                        </a>
-                    </article>
-                `).join('');
-
-            } catch (error) {
-                console.error('GitHub fetch error:', error);
-                projectsContainer.innerHTML = `
-                    <div style="text-align:center;padding:3rem;grid-column:1/-1;">
-                        <p style="font-size:2.5rem;margin-bottom:1rem;">🔗</p>
-                        <p style="color:var(--text-muted);font-size:1.1rem;margin-bottom:0.5rem;">${error.message || 'Could not load repositories automatically.'}</p>
-                        <p style="color:var(--text-muted);font-size:0.95rem;margin-bottom:2rem;">You can browse all projects directly on GitHub.</p>
-                        <a href="https://github.com/${username}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-block;">
-                            Visit github.com/${username} →
-                        </a>
-                    </div>
-                `;
+                response = await fetchWithTimeout(apiUrl, {
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json',
+                        'X-GitHub-Api-Version': '2022-11-28'
+                    }
+                });
+            } catch {
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`;
+                const pr = await fetchWithTimeout(proxyUrl, {}, 10000);
+                if (!pr.ok) throw new Error('Network error. Both fetch methods failed.');
+                const pd = await pr.json();
+                response = { ok: true, json: async () => JSON.parse(pd.contents) };
             }
+
+            if (response.status === 403) throw new Error('GitHub rate limit reached. Visit GitHub directly.');
+            if (!response.ok && response.status)  throw new Error(`GitHub API error: ${response.status}`);
+
+            let repos = await response.json();
+            repos = repos.filter(r => !r.fork)
+                         .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+            if (repos.length === 0) {
+                container.innerHTML = `<p style="grid-column:1/-1;text-align:center;color:var(--text-2)">
+                    No public repos yet. <a href="https://github.com/${username}" target="_blank" rel="noopener noreferrer" style="color:var(--green)">Visit GitHub →</a>
+                </p>`;
+                return;
+            }
+
+            container.innerHTML = repos.map(repo => `
+                <article class="github-card" role="listitem">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:0.8rem;margin-bottom:0.7rem;">
+                        <h4>${repo.name.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h4>
+                        ${repo.language ? `<span class="tag" style="flex-shrink:0;font-size:0.65rem;">${repo.language}</span>` : ''}
+                    </div>
+                    <p>${repo.description || 'A project showcasing practical development skills.'}</p>
+                    <div class="github-stats">
+                        <span class="github-stat" aria-label="${repo.stargazers_count} stars">⭐ ${repo.stargazers_count}</span>
+                        <span class="github-stat" aria-label="${repo.forks_count} forks">🍴 ${repo.forks_count}</span>
+                        <span class="github-stat">📅 ${new Date(repo.updated_at).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' })}</span>
+                    </div>
+                    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer"
+                       style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;
+                              color:var(--green);text-decoration:none;font-size:0.8rem;
+                              font-family:var(--font-mono);border:1px solid var(--border-2);
+                              padding:0.3rem 0.8rem;border-radius:6px;transition:all 0.2s;"
+                       onmouseover="this.style.background='rgba(0,255,163,0.08)'"
+                       onmouseout="this.style.background='transparent'">
+                        View on GitHub →
+                    </a>
+                </article>
+            `).join('');
+
+            // Observe new cards for fade-in
+            container.querySelectorAll('.github-card').forEach(card => {
+                card.classList.add('fade-in');
+                observer.observe(card);
+            });
+
+        } catch (err) {
+            console.error('GitHub fetch error:', err);
+            container.innerHTML = `
+                <div style="grid-column:1/-1;text-align:center;padding:3rem;">
+                    <p style="font-size:2rem;margin-bottom:0.8rem;">🔗</p>
+                    <p style="color:var(--text-2);margin-bottom:0.5rem;">${err.message || 'Could not load repositories.'}</p>
+                    <p style="color:var(--text-3);font-size:0.85rem;margin-bottom:1.5rem;">Browse all projects directly on GitHub.</p>
+                    <a href="https://github.com/${username}" target="_blank" rel="noopener noreferrer"
+                       style="display:inline-block;background:var(--green);color:var(--bg);
+                              padding:0.7rem 1.8rem;border-radius:10px;text-decoration:none;
+                              font-weight:700;font-size:0.9rem;">
+                        Visit github.com/${username} →
+                    </a>
+                </div>`;
         }
+    }
 
-        // Load repos after page fully loads
-        if (document.readyState === 'complete') {
-            fetchGitHubRepos();
-        } else {
-            window.addEventListener('load', fetchGitHubRepos);
-        }
+    if (document.readyState === 'complete') {
+        fetchGitHubRepos();
+    } else {
+        window.addEventListener('load', fetchGitHubRepos);
+    }
 
-        // Download CV Function
-        function downloadCV() {
-            const cvContent = `AMRITPAL SINGH KAUR (APSK)
-Software Engineer & Cloud Computing Specialist
+    /* ── Active Nav Link Highlighting ───────────── */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('#mainNav a[href^="#"]');
 
-CONTACT INFORMATION
-Email: Sharysingh1144@gmail.com
-Phone: 07722145765
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(a => a.removeAttribute('aria-current'));
+                const active = document.querySelector(`#mainNav a[href="#${entry.target.id}"]`);
+                if (active) active.setAttribute('aria-current', 'page');
+            }
+        });
+    }, { threshold: 0.35 });
+    sections.forEach(s => navObserver.observe(s));
+
+    /* ── Download CV ─────────────────────────────── */
+    window.downloadCV = function () {
+        const cv = `AMRITPAL SINGH KAUR (APSK)
+Graduate Software Engineer & Cloud Computing Specialist
+
+CONTACT
+Email:    ap.singhkaur@gmail.com
+Phone:    07722 145 765
 Location: London, United Kingdom
-GitHub: github.com/Amrit004
+GitHub:   github.com/Amrit004
 LinkedIn: linkedin.com/in/amritpal-singh-kaur-b54b9a1b1
 
 PROFESSIONAL SUMMARY
-Graduate Computer Science professional and MSc Advanced Computer Science student at Queen Mary University of London. Strong expertise in cloud computing, machine learning, cybersecurity, and full-stack development. Proven experience in enterprise IT environments within regulated financial sectors. Passionate about building scalable, mission-critical systems.
+Graduate Computer Science professional and MSc Advanced Computer Science student at Queen Mary University of London. Strong expertise in cloud computing, machine learning, cybersecurity, and full-stack development. Proven experience in enterprise IT within regulated financial sectors.
 
 EDUCATION
+MSc Advanced Computer Science — Queen Mary University of London (2025–2026, In Progress)
+Specialisations: Cloud Computing, ML, Security & Auth, Functional Programming, Data Analytics
 
-MSc Advanced Computer Science
-Queen Mary University of London (2025-2026) - In Progress
-Specializations: Cloud Computing, Machine Learning, Security & Authentication, Functional Programming, Data Analytics, Research
-
-BSc (Hons) Computer Science - Second Class Honours (Upper Division) 2:1
-Staffordshire University (September 2022 - May 2025)
-360 Credits (180 ECTS) | 12 Modules Completed
-
-Key Areas: Enterprise Cloud & Distributed Systems, Web & AI, UX Design, Mobile Development, 
-Databases, Networking & Cybersecurity, Server-Side Programming
+BSc (Hons) Computer Science — 2:1 Honours
+Staffordshire University (Sep 2022 – May 2025)
 
 PROFESSIONAL EXPERIENCE
-
-Bank of America - Deployment / Breakfix Engineer
-• Provided critical support for enterprise systems in secure financial environment
+Bank of America — Deployment / Breakfix Engineer
+• Critical support for enterprise desktop systems in secure financial environment
 • Diagnosed and resolved complex hardware/software issues
 • Led large-scale deployment initiatives and asset management programs
-• Implemented security patches in compliance with regulations
 
-Amadeus - Field Support Technician (Level 2)
+Amadeus — Field Support Technician (Level 2)
 • Delivered secure device replacements in global travel tech environment
-• Performed advanced system configurations and installations
-• Provided escalation support for complex issues
-• Maintained comprehensive technical documentation
+• Advanced system configurations and enterprise application installations
+• Escalation support for complex technical issues
 
-ENI - IT Technician / Support
-• Delivered frontline support for enterprise systems
-• Monitored and maintained system uptime
+ENI — IT Technician / Support
+• Frontline support for hardware, software and network connectivity
+• Monitored and maintained system uptime in enterprise environment
 • Created troubleshooting guides and procedures
-• Assisted with infrastructure maintenance
 
 TECHNICAL SKILLS
-
-Programming: Java, JavaScript (Node.js, React), C#, Python, HTML5, CSS3, REST APIs
-Cloud & DevOps: AWS (EC2, S3, Lambda, IAM), Docker, Microservices, Kubernetes, Linux/Unix
-Databases: SQL, MySQL, PostgreSQL, Database Design, Data Structures, Algorithms
-AI & ML: Machine Learning, NLP, NumPy, Pandas, Scikit-learn, Predictive Analytics
-Security: Network Security, Cybersecurity, Authentication, IAM, Encryption
-Web & Mobile: PWA, Android, Responsive Design, UX/UI, Accessibility
-Tools: Git/GitHub, VS Code, Android Studio, Figma, Agile/Scrum, CI/CD
+Programming:  Java, JavaScript (Node.js, React), C#, Python, HTML5, CSS3, REST APIs
+Cloud/DevOps: AWS (EC2, S3, Lambda, IAM), Docker, Kubernetes, Microservices, Linux/Unix
+Databases:    SQL, MySQL, PostgreSQL, Database Design, Data Structures, Algorithms
+AI & ML:      Machine Learning, NLP, NumPy, Pandas, Scikit-learn, Predictive Analytics
+Security:     Network Security, Cybersecurity, Authentication, IAM, Encryption, Compliance
+Web/Mobile:   PWA, Android, Responsive Design, UX/UI, Accessibility (WCAG)
+Tools:        Git/GitHub, VS Code, Android Studio, Figma, Agile/Scrum, CI/CD
 
 LANGUAGES
-English (Native / Bilingual), Spanish (Native), Catalan (Native), Punjabi (Native), Hindi (Professional)
+English (Native), Spanish (Native), Catalan (Native), Punjabi (Native), Hindi (Professional)
 `;
-            
-            const blob = new Blob([cvContent], { type: 'text/plain;charset=utf-8' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Amritpal_Singh_Kaur_APSK_CV.txt';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
-        }
+        const blob = new Blob([cv], { type: 'text/plain;charset=utf-8' });
+        const url  = URL.createObjectURL(blob);
+        const a    = document.createElement('a');
+        a.href = url;
+        a.download = 'Amritpal_Singh_Kaur_CV.txt';
+        document.body.appendChild(a);
+        a.click();
+        URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    };
 
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-
-        // Keyboard navigation improvements
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !a11yControls.classList.contains('hidden')) {
-                a11yControls.classList.add('hidden');
-                a11yToggle.setAttribute('aria-expanded', 'false');
-                a11yToggle.focus();
-            }
-        });
+})();

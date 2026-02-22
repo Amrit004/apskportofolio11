@@ -3,686 +3,712 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Amritpal Singh Kaur - Software Engineer & Cloud Computing Specialist Portfolio">
-    <meta name="keywords" content="Software Engineer, Cloud Computing, Full-Stack Developer, Machine Learning">
+    <meta name="description" content="Amritpal Singh Kaur — Graduate Software Engineer & Cloud Computing Specialist based in London">
+    <meta name="keywords" content="Software Engineer, Cloud Computing, Full-Stack Developer, Machine Learning, London">
     <title>Amritpal Singh Kaur — Graduate Software Engineer | London</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
-    
-    <div class="animated-bg" aria-hidden="true"></div>
-    <div class="grid-overlay" aria-hidden="true"></div>
-    <div class="scroll-indicator" id="scrollIndicator" role="progressbar" aria-label="Page scroll progress"></div>
+
+    <!-- Background layers -->
+    <div class="bg-mesh" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-bar" id="scrollBar" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
     <!-- Accessibility Toggle -->
-    <button class="a11y-toggle" id="a11yToggle" aria-label="Toggle accessibility controls" aria-expanded="false">
-        ♿
+    <button class="a11y-toggle" id="a11yToggle" aria-label="Accessibility options" aria-expanded="false">
+        <span aria-hidden="true">♿</span>
     </button>
-
-    <!-- Accessibility Controls -->
-    <aside class="accessibility-controls hidden" id="a11yControls" role="region" aria-label="Accessibility controls">
-        <h3>Accessibility Options</h3>
-        <button class="a11y-button" id="highContrastBtn" aria-pressed="false">
-            Toggle High Contrast
-        </button>
-        <button class="a11y-button" id="increaseFontBtn" aria-label="Increase font size">
-            Increase Font Size
-        </button>
-        <button class="a11y-button" id="decreaseFontBtn" aria-label="Decrease font size">
-            Decrease Font Size
-        </button>
-        <button class="a11y-button" id="resetFontBtn" aria-label="Reset font size">
-            Reset Font Size
-        </button>
+    <aside class="a11y-panel hidden" id="a11yControls" role="region" aria-label="Accessibility controls">
+        <p class="a11y-title">Accessibility</p>
+        <button class="a11y-btn" id="highContrastBtn" aria-pressed="false">High Contrast</button>
+        <button class="a11y-btn" id="increaseFontBtn">Larger Text</button>
+        <button class="a11y-btn" id="decreaseFontBtn">Smaller Text</button>
+        <button class="a11y-btn" id="resetFontBtn">Reset</button>
     </aside>
 
-    <!-- Available for Hire Banner -->
-    <div class="hire-banner" role="banner" aria-label="Job availability status">
-        <span class="hire-dot" aria-hidden="true"></span>
-        <strong>Actively Seeking Graduate &amp; Entry-Level Roles</strong> — Software Engineer · Cloud &amp; DevOps · Data · Cybersecurity · Available in London &amp; Remote
+    <!-- Hire Banner -->
+    <div class="hire-banner" role="banner">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <strong>Open to Work</strong> &mdash; Graduate Software Engineer &bull; Cloud/DevOps &bull; Data &bull; Cybersecurity &bull; London &amp; Remote
     </div>
 
     <!-- Navigation -->
-    <nav role="navigation" aria-label="Main navigation">
-        <div class="container">
-            <div class="logo" aria-label="Amritpal Singh Kaur">APSK</div>
-            <ul>
+    <nav id="mainNav" role="navigation" aria-label="Main navigation">
+        <div class="nav-inner">
+            <a href="#home" class="logo" aria-label="APSK Home">APSK</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navMenu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul id="navMenu" role="list">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#roles">Target Roles</a></li>
-                <li><a href="#github">GitHub</a></li>
+                <li><a href="#roles">Roles</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#github">GitHub</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact" class="nav-cta">Contact Me</a></li>
+                <li><a href="#contact" class="nav-cta">Hire Me</a></li>
             </ul>
         </div>
     </nav>
 
     <main id="main">
-        <!-- Hero Section -->
+
+        <!-- ══════════════════════════════════════
+             HERO
+        ═══════════════════════════════════════ -->
         <section id="home" aria-labelledby="hero-heading">
             <div class="container">
-                <div class="hero">
+                <div class="hero-layout">
                     <div class="hero-content">
-                        <h1 id="hero-heading">Amritpal Singh Kaur</h1>
-                        <p class="subtitle">Graduate Software Engineer &amp; CS Postgraduate</p>
-                        <p>MSc Advanced Computer Science student at <strong style="color:var(--primary)">Queen Mary University of London</strong> (graduating 2026), holding a BSc Computer Science 2:1 from Staffordshire University. I've gained real enterprise IT exposure at <strong style="color:var(--primary)">Bank of America</strong>, <strong style="color:var(--primary)">Amadeus</strong> and <strong style="color:var(--primary)">ENI</strong>, and I build personal projects in cloud computing, ML and cybersecurity. Looking for a graduate role where I can grow fast and contribute from day one.</p>
-
-                        <!-- Open to roles tags -->
-                        <div class="open-to-row" aria-label="Target roles">
-                            <span class="open-label">Looking for:</span>
-                            <span class="open-tag">Graduate Software Engineer</span>
-                            <span class="open-tag">Junior Developer</span>
-                            <span class="open-tag">Cloud / DevOps Graduate</span>
-                            <span class="open-tag">Data Analyst</span>
-                            <span class="open-tag">Cybersecurity Analyst</span>
-                            <span class="open-tag">IT Graduate Scheme</span>
+                        <div class="hero-eyebrow">
+                            <span class="mono">// London, UK &mdash; Available Now</span>
                         </div>
-                        
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <span aria-hidden="true">📧</span>
-                                <a href="mailto:sharysingh1144@gmail.com">sharysingh1144@gmail.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <span aria-hidden="true">📱</span>
-                                <a href="tel:+447722145765">07722145765</a>
-                            </div>
-                            <div class="contact-item">
-                                <span aria-hidden="true">📍</span>
-                                <span>London, UK</span>
-                            </div>
+                        <h1 id="hero-heading">Amritpal<br><span class="name-accent">Singh Kaur</span></h1>
+                        <p class="hero-subtitle">Graduate Software Engineer &amp; CS Postgraduate</p>
+                        <p class="hero-bio">
+                            MSc Advanced Computer Science student at <strong>Queen Mary University of London</strong> (graduating 2026), BSc Computer Science 2:1 from Staffordshire University. Real enterprise exposure at <strong>Bank of America</strong>, <strong>Amadeus</strong> and <strong>ENI</strong>. Building projects across cloud computing, ML and cybersecurity.
+                        </p>
+
+                        <div class="looking-for" aria-label="Roles I am looking for">
+                            <span class="lf-label">Looking for:</span>
+                            <span class="lf-tag">Graduate SWE</span>
+                            <span class="lf-tag">Junior Developer</span>
+                            <span class="lf-tag">Cloud / DevOps</span>
+                            <span class="lf-tag">Data Analyst</span>
+                            <span class="lf-tag">Cybersecurity</span>
+                            <span class="lf-tag">IT Grad Scheme</span>
                         </div>
 
-                        <div class="btn-group">
+                        <div class="hero-contacts">
+                            <a href="mailto:ap.singhkaur@gmail.com" class="contact-chip">
+                                <span aria-hidden="true">✉</span> ap.singhkaur@gmail.com
+                            </a>
+                            <a href="tel:+447722145765" class="contact-chip">
+                                <span aria-hidden="true">☎</span> 07722 145 765
+                            </a>
+                            <span class="contact-chip">
+                                <span aria-hidden="true">◉</span> London, UK
+                            </span>
+                        </div>
+
+                        <div class="hero-actions">
                             <a href="https://github.com/Amrit004" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-                                View GitHub
+                                <span aria-hidden="true">⌥</span> View GitHub
                             </a>
-                            <a href="https://linkedin.com/in/amritpal-singh-kaur-b54b9a1b1" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-                                LinkedIn
+                            <a href="https://linkedin.com/in/amritpal-singh-kaur-b54b9a1b1" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                                <span aria-hidden="true">⬡</span> LinkedIn
                             </a>
-                            <a href="#contact" class="btn btn-hire">
-                                📩 Contact Me
+                            <a href="#contact" class="btn btn-accent">
+                                <span aria-hidden="true">✉</span> Contact Me
                             </a>
                         </div>
                     </div>
 
-                    <aside class="hero-visual" aria-label="Core competencies">
-                        <h3 style="margin-bottom: 2rem; color: var(--secondary); font-size: 1.5rem; text-align: center;">Core Competencies</h3>
-                        <div class="competency-badge">☁️ Cloud Computing & AWS</div>
-                        <div class="competency-badge">🤖 Machine Learning & AI</div>
-                        <div class="competency-badge">🔒 Cybersecurity & Network Security</div>
-                        <div class="competency-badge">💻 Full-Stack Development</div>
-                        <div class="competency-badge">🐧 Linux/Unix Systems</div>
-                        <div class="competency-badge">🗄️ Database Architecture</div>
+                    <aside class="hero-panel" aria-label="Core competencies">
+                        <div class="panel-header">
+                            <span class="mono panel-label">// Core Competencies</span>
+                        </div>
+                        <div class="comp-list">
+                            <div class="comp-item"><span class="comp-icon">☁</span><span>Cloud Computing &amp; AWS</span></div>
+                            <div class="comp-item"><span class="comp-icon">⬡</span><span>Machine Learning &amp; AI</span></div>
+                            <div class="comp-item"><span class="comp-icon">⬡</span><span>Cybersecurity &amp; Network Security</span></div>
+                            <div class="comp-item"><span class="comp-icon">⌥</span><span>Full-Stack Development</span></div>
+                            <div class="comp-item"><span class="comp-icon">⬡</span><span>Linux / Unix Systems</span></div>
+                            <div class="comp-item"><span class="comp-icon">⬡</span><span>Database Architecture</span></div>
+                        </div>
+                        <div class="panel-footer mono">
+                            <span class="status-dot"></span>Actively applying &mdash; 2026
+                        </div>
                     </aside>
                 </div>
             </div>
         </section>
 
-        <!-- Stats / Proof Bar -->
-        <section id="stats" aria-labelledby="stats-heading" style="min-height:auto; padding: 3rem 0; background: rgba(16,185,129,0.04); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">3+</div>
-                        <div class="stat-label">Enterprise Employers</div>
-                        <div class="stat-sub">BofA · Amadeus · ENI</div>
+        <!-- ══════════════════════════════════════
+             ACHIEVEMENT MARQUEE BAR
+             (replaces old stacked stat cards)
+        ═══════════════════════════════════════ -->
+        <div class="achievement-bar" aria-label="Key statistics">
+            <div class="ach-track">
+                <div class="ach-item">
+                    <span class="ach-num">3<sup>+</sup></span>
+                    <div class="ach-info">
+                        <span class="ach-label">Enterprise Employers</span>
+                        <span class="ach-sub mono">BofA · Amadeus · ENI</span>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">2</div>
-                        <div class="stat-label">Degrees</div>
-                        <div class="stat-sub">BSc 2:1 · MSc (QM)</div>
+                </div>
+                <div class="ach-divider" aria-hidden="true">·</div>
+
+                <div class="ach-item">
+                    <span class="ach-num">2</span>
+                    <div class="ach-info">
+                        <span class="ach-label">Degrees</span>
+                        <span class="ach-sub mono">BSc 2:1 · MSc (QMUL)</span>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">6+</div>
-                        <div class="stat-label">Live Projects</div>
-                        <div class="stat-sub">AI · Cloud · Security</div>
+                </div>
+                <div class="ach-divider" aria-hidden="true">·</div>
+
+                <div class="ach-item">
+                    <span class="ach-num">6<sup>+</sup></span>
+                    <div class="ach-info">
+                        <span class="ach-label">Live Projects</span>
+                        <span class="ach-sub mono">AI · Cloud · Security</span>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label">Languages Spoken</div>
-                        <div class="stat-sub">EN · ES · CA · PA · HI</div>
+                </div>
+                <div class="ach-divider" aria-hidden="true">·</div>
+
+                <div class="ach-item">
+                    <span class="ach-num">5</span>
+                    <div class="ach-info">
+                        <span class="ach-label">Languages Spoken</span>
+                        <span class="ach-sub mono">EN · ES · CA · PA · HI</span>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">AWS</div>
-                        <div class="stat-label">Cloud Platform</div>
-                        <div class="stat-sub">EC2 · S3 · Lambda · IAM</div>
+                </div>
+                <div class="ach-divider" aria-hidden="true">·</div>
+
+                <div class="ach-item">
+                    <span class="ach-num ach-aws">AWS</span>
+                    <div class="ach-info">
+                        <span class="ach-label">Cloud Platform</span>
+                        <span class="ach-sub mono">EC2 · S3 · Lambda · IAM</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Education Section -->
-        <section id="education" aria-labelledby="education-heading">
+        <!-- ══════════════════════════════════════
+             EDUCATION
+        ═══════════════════════════════════════ -->
+        <section id="education" aria-labelledby="edu-heading">
             <div class="container">
-                <div style="width: 100%;">
-                    <header class="section-header">
-                        <h2 id="education-heading">Education</h2>
-                        <p>Academic excellence in computer science and advanced computing</p>
-                    </header>
+                <header class="section-head">
+                    <div class="section-tag mono">01 / Education</div>
+                    <h2 id="edu-heading">Academic Background</h2>
+                    <p>Excellence in computer science and advanced computing</p>
+                </header>
 
-                    <div class="education-card">
-                        <div class="education-header">
+                <div class="edu-grid">
+                    <article class="edu-card">
+                        <div class="edu-card-top">
                             <div>
-                                <div class="degree-title">MSc Advanced Computer Science</div>
-                                <div class="university">Queen Mary University of London</div>
-                                <div style="color: var(--text-muted); margin-top: 0.5rem;">2025 – 2026 (In Progress)</div>
+                                <div class="edu-badge">Current · In Progress</div>
+                                <h3 class="edu-degree">MSc Advanced Computer Science</h3>
+                                <div class="edu-uni">Queen Mary University of London</div>
+                                <div class="edu-date mono">2025 — 2026</div>
                             </div>
-                            <div class="degree-badge">Current Student</div>
                         </div>
-                        <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.1rem;">Pursuing advanced studies in cutting-edge computing technologies with emphasis on cloud architecture, artificial intelligence, security protocols, and distributed systems. Engaging in research-led projects and practical implementations.</p>
-                        
-                        <div class="project-tags">
+                        <p class="edu-desc">Pursuing advanced studies in cutting-edge computing with emphasis on cloud architecture, artificial intelligence, security protocols and distributed systems.</p>
+                        <div class="tag-row">
                             <span class="tag">Cloud Computing</span>
                             <span class="tag">Machine Learning</span>
-                            <span class="tag">Security & Authentication</span>
+                            <span class="tag">Security &amp; Auth</span>
                             <span class="tag">Functional Programming</span>
                             <span class="tag">Data Analytics</span>
-                            <span class="tag">Research Project</span>
+                            <span class="tag">Research</span>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="education-card">
-                        <div class="education-header">
+                    <article class="edu-card">
+                        <div class="edu-card-top">
                             <div>
-                                <div class="degree-title">BSc (Hons) Computer Science</div>
-                                <div class="university">Staffordshire University</div>
-                                <div style="color: var(--text-muted); margin-top: 0.5rem;">September 2022 – May 2025</div>
-                            </div>
-                            <div class="degree-badge">2:1 Honours</div>
-                        </div>
-                        <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.1rem;">Comprehensive 3-year programme covering software engineering, cloud computing, AI integration, cybersecurity, and full-stack development with strong performance across networking, databases, web technologies, and enterprise systems.</p>
-                        
-                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);">
-                            <h4 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.3rem;">Key Areas of Study</h4>
-                            <div class="project-tags">
-                                <span class="tag">Enterprise Cloud & Distributed Systems</span>
-                                <span class="tag">Web & Artificial Intelligence</span>
-                                <span class="tag">UX Design & Multi-Device Development</span>
-                                <span class="tag">Mobile App Development</span>
-                                <span class="tag">Databases & Data Structures</span>
-                                <span class="tag">Networking & Cybersecurity</span>
-                                <span class="tag">Server-Side Programming</span>
-                                <span class="tag">Commercial Computing</span>
+                                <div class="edu-badge edu-badge--gold">2:1 Honours</div>
+                                <h3 class="edu-degree">BSc (Hons) Computer Science</h3>
+                                <div class="edu-uni">Staffordshire University</div>
+                                <div class="edu-date mono">Sep 2022 — May 2025</div>
                             </div>
                         </div>
-                    </div>
+                        <p class="edu-desc">Comprehensive 3-year programme covering software engineering, cloud computing, AI, cybersecurity and full-stack development with strong performance across all modules.</p>
+                        <div class="tag-row">
+                            <span class="tag">Enterprise Cloud</span>
+                            <span class="tag">Web &amp; AI</span>
+                            <span class="tag">UX Design</span>
+                            <span class="tag">Mobile Dev</span>
+                            <span class="tag">Databases</span>
+                            <span class="tag">Networking</span>
+                            <span class="tag">Cybersecurity</span>
+                            <span class="tag">Server-Side</span>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" aria-labelledby="experience-heading">
+        <!-- ══════════════════════════════════════
+             EXPERIENCE
+        ═══════════════════════════════════════ -->
+        <section id="experience" aria-labelledby="exp-heading">
             <div class="container">
-                <div>
-                    <header class="section-header">
-                        <h2 id="experience-heading">Professional Experience</h2>
-                        <p>Enterprise IT and financial technology expertise</p>
-                    </header>
+                <header class="section-head">
+                    <div class="section-tag mono">02 / Experience</div>
+                    <h2 id="exp-heading">Professional Experience</h2>
+                    <p>Enterprise IT and financial technology expertise</p>
+                </header>
 
-                    <div class="timeline" role="list">
-                        <article class="timeline-item" role="listitem">
-                            <h3>Deployment / Breakfix Engineer</h3>
-                            <div class="company">Bank of America</div>
-                            <ul>
-                                <li>Provided critical support for enterprise desktop systems within a secure, highly-regulated financial environment, ensuring compliance with industry standards and internal security protocols</li>
-                                <li>Diagnosed and resolved complex hardware and software issues, minimizing downtime and maintaining operational efficiency across multiple business units</li>
-                                <li>Played a key role in large-scale deployment initiatives and comprehensive asset management programs, supporting hundreds of end-users</li>
-                                <li>Collaborated with cross-functional teams to implement security patches and system updates in accordance with financial industry regulations</li>
+                <div class="timeline" role="list">
+                    <article class="tl-item" role="listitem">
+                        <div class="tl-marker" aria-hidden="true"></div>
+                        <div class="tl-card">
+                            <div class="tl-header">
+                                <div>
+                                    <h3>Deployment / Breakfix Engineer</h3>
+                                    <div class="tl-company">Bank of America</div>
+                                </div>
+                                <span class="tl-badge">FinTech</span>
+                            </div>
+                            <ul class="tl-list">
+                                <li>Critical support for enterprise desktop systems within a secure, highly-regulated financial environment ensuring compliance with industry standards</li>
+                                <li>Diagnosed and resolved complex hardware and software issues, minimising downtime across multiple business units</li>
+                                <li>Key role in large-scale deployment initiatives and comprehensive asset management programs supporting hundreds of end-users</li>
+                                <li>Implemented security patches and system updates in accordance with financial industry regulations</li>
                             </ul>
-                            <div class="project-tags" style="margin-top: 1.5rem;">
+                            <div class="tag-row" style="margin-top:1.4rem">
                                 <span class="tag">Enterprise Systems</span>
                                 <span class="tag">Asset Management</span>
                                 <span class="tag">Financial Services</span>
                                 <span class="tag">Compliance</span>
                                 <span class="tag">Security</span>
                             </div>
-                        </article>
+                        </div>
+                    </article>
 
-                        <article class="timeline-item" role="listitem">
-                            <h3>Field Support Technician (Level 2)</h3>
-                            <div class="company">Amadeus</div>
-                            <ul>
-                                <li>Delivered secure laptop and mobile device replacements, ensuring seamless technology transitions for end-users in a fast-paced global travel technology environment</li>
-                                <li>Performed advanced system configurations and enterprise application installations, adhering to strict security protocols and organizational standards</li>
-                                <li>Provided escalation support for complex technical issues, collaborating with cross-functional teams to resolve incidents efficiently</li>
-                                <li>Maintained detailed documentation of system configurations and troubleshooting procedures to improve team knowledge sharing</li>
+                    <article class="tl-item" role="listitem">
+                        <div class="tl-marker" aria-hidden="true"></div>
+                        <div class="tl-card">
+                            <div class="tl-header">
+                                <div>
+                                    <h3>Field Support Technician (Level 2)</h3>
+                                    <div class="tl-company">Amadeus</div>
+                                </div>
+                                <span class="tl-badge">Global Tech</span>
+                            </div>
+                            <ul class="tl-list">
+                                <li>Delivered secure laptop and mobile device replacements in a fast-paced global travel technology environment</li>
+                                <li>Advanced system configurations and enterprise application installations adhering to strict security protocols</li>
+                                <li>Escalation support for complex technical issues, collaborating with cross-functional teams to resolve incidents efficiently</li>
+                                <li>Maintained detailed documentation of system configurations and troubleshooting procedures</li>
                             </ul>
-                            <div class="project-tags" style="margin-top: 1.5rem;">
+                            <div class="tag-row" style="margin-top:1.4rem">
                                 <span class="tag">Field Support</span>
                                 <span class="tag">System Configuration</span>
                                 <span class="tag">Mobile Deployment</span>
                                 <span class="tag">Security</span>
                                 <span class="tag">Documentation</span>
                             </div>
-                        </article>
+                        </div>
+                    </article>
 
-                        <article class="timeline-item" role="listitem">
-                            <h3>IT Technician / Support</h3>
-                            <div class="company">ENI</div>
-                            <ul>
-                                <li>Delivered frontline technical support for hardware, software, and network connectivity issues, maintaining high system availability and user satisfaction</li>
-                                <li>Proactively monitored and maintained system uptime in an enterprise environment, identifying and resolving potential issues before they impacted operations</li>
-                                <li>Documented technical procedures and troubleshooting guides, contributing to knowledge base improvement and team efficiency</li>
-                                <li>Assisted with IT infrastructure maintenance and upgrades, ensuring minimal disruption to business operations</li>
+                    <article class="tl-item" role="listitem">
+                        <div class="tl-marker" aria-hidden="true"></div>
+                        <div class="tl-card">
+                            <div class="tl-header">
+                                <div>
+                                    <h3>IT Technician / Support</h3>
+                                    <div class="tl-company">ENI</div>
+                                </div>
+                                <span class="tl-badge">Energy</span>
+                            </div>
+                            <ul class="tl-list">
+                                <li>Frontline technical support for hardware, software and network connectivity, maintaining high system availability</li>
+                                <li>Proactively monitored enterprise system uptime, identifying and resolving issues before they impacted operations</li>
+                                <li>Documented technical procedures and troubleshooting guides contributing to knowledge base and team efficiency</li>
+                                <li>Assisted with IT infrastructure maintenance and upgrades ensuring minimal business disruption</li>
                             </ul>
-                            <div class="project-tags" style="margin-top: 1.5rem;">
+                            <div class="tag-row" style="margin-top:1.4rem">
                                 <span class="tag">Technical Support</span>
                                 <span class="tag">System Maintenance</span>
                                 <span class="tag">Problem Resolution</span>
                                 <span class="tag">Documentation</span>
                                 <span class="tag">Infrastructure</span>
                             </div>
-                        </article>
-                    </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Target Roles Section -->
+        <!-- ══════════════════════════════════════
+             TARGET ROLES
+        ═══════════════════════════════════════ -->
         <section id="roles" aria-labelledby="roles-heading">
             <div class="container">
-                <div style="width:100%">
-                    <header class="section-header">
-                        <h2 id="roles-heading">Roles I'm Targeting</h2>
-                        <p>Graduate &amp; entry-level positions that align with my skills, studies and ambitions</p>
-                    </header>
-                    <div class="roles-grid">
+                <header class="section-head">
+                    <div class="section-tag mono">03 / Target Roles</div>
+                    <h2 id="roles-heading">Roles I'm Targeting</h2>
+                    <p>Graduate &amp; entry-level positions aligned with my skills, studies and ambitions</p>
+                </header>
 
-                        <article class="role-card">
-                            <div class="role-icon">💻</div>
-                            <h3>Graduate Software Engineer</h3>
-                            <p>Building backend services, REST APIs and web applications using Java, JavaScript, Python or C#. Comfortable with Git, agile workflows and writing clean, tested code.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">Java</span><span class="role-tag">Python</span><span class="role-tag">JavaScript</span><span class="role-tag">REST APIs</span><span class="role-tag">Agile</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">☁️</div>
-                            <h3>Junior Cloud / DevOps Engineer</h3>
-                            <p>Supporting cloud infrastructure on AWS, automating deployments and working with containers. Hands-on experience with EC2, S3, Lambda, IAM, Docker and CI/CD pipelines.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">AWS</span><span class="role-tag">Docker</span><span class="role-tag">Linux</span><span class="role-tag">CI/CD</span><span class="role-tag">Kubernetes</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">🔒</div>
-                            <h3>Junior Cybersecurity Analyst</h3>
-                            <p>Analysing threats, supporting incident response and applying security controls. Background in network security, IAM, encryption and working in regulated financial environments (BofA).</p>
-                            <div class="role-skills">
-                                <span class="role-tag">Network Security</span><span class="role-tag">IAM</span><span class="role-tag">Encryption</span><span class="role-tag">Compliance</span><span class="role-tag">SIEM</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">📊</div>
-                            <h3>Data Analyst / Junior Data Engineer</h3>
-                            <p>Cleaning, analysing and visualising data to support business decisions. Skilled in Python (NumPy, Pandas), SQL, statistical analysis and building dashboards from real APIs.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">Python</span><span class="role-tag">SQL</span><span class="role-tag">Pandas</span><span class="role-tag">Data Viz</span><span class="role-tag">Analytics</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">🤖</div>
-                            <h3>Junior ML / AI Engineer</h3>
-                            <p>Developing and evaluating machine learning models for classification, prediction and NLP. MSc modules in ML and Data Analytics underpin applied project work with Scikit-learn and Python.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">Scikit-learn</span><span class="role-tag">NLP</span><span class="role-tag">Pandas</span><span class="role-tag">Model Evaluation</span><span class="role-tag">Python</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">🌐</div>
-                            <h3>Junior Full-Stack Developer</h3>
-                            <p>Building responsive, accessible web apps from frontend to database. Experience with React, Node.js, HTML/CSS, REST APIs and deploying on cloud platforms.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">React</span><span class="role-tag">Node.js</span><span class="role-tag">HTML/CSS</span><span class="role-tag">PostgreSQL</span><span class="role-tag">REST</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">🖥️</div>
-                            <h3>IT Graduate Scheme / Systems Analyst</h3>
-                            <p>Enterprise IT support, systems analysis and infrastructure work. Proven in fast-paced environments at Bank of America, Amadeus and ENI — deployments, breakfix, compliance and documentation.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">Enterprise IT</span><span class="role-tag">Systems Analysis</span><span class="role-tag">ITIL</span><span class="role-tag">Windows Server</span><span class="role-tag">Linux</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">📱</div>
-                            <h3>Android / Mobile Developer</h3>
-                            <p>Building native and cross-platform mobile applications. Studied mobile app development as a core module and built PWAs and Android apps with offline-first architecture.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">Android Studio</span><span class="role-tag">Java</span><span class="role-tag">PWA</span><span class="role-tag">Service Workers</span><span class="role-tag">UX/UI</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">🗄️</div>
-                            <h3>Database Administrator (Junior)</h3>
-                            <p>Designing and maintaining relational databases, writing optimised queries and ensuring data integrity. Solid grounding in SQL, MySQL, PostgreSQL, ER modelling and data structures.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">MySQL</span><span class="role-tag">PostgreSQL</span><span class="role-tag">SQL</span><span class="role-tag">ER Modelling</span><span class="role-tag">Query Optimisation</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">🧪</div>
-                            <h3>QA / Test Engineer (Graduate)</h3>
-                            <p>Ensuring software quality through testing strategies, writing test cases and identifying defects early. Strong software engineering fundamentals from BSc and project experience across multiple languages.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">Testing</span><span class="role-tag">Debugging</span><span class="role-tag">Documentation</span><span class="role-tag">Agile</span><span class="role-tag">JIRA</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">🏦</div>
-                            <h3>FinTech / Banking Technology Graduate</h3>
-                            <p>Technology roles within financial services — building trading tools, compliance systems or internal platforms. Direct regulated-industry experience from Bank of America sets me apart in this sector.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">Financial Services</span><span class="role-tag">Compliance</span><span class="role-tag">Enterprise Systems</span><span class="role-tag">Security</span><span class="role-tag">Java</span>
-                            </div>
-                        </article>
-
-                        <article class="role-card">
-                            <div class="role-icon">🌍</div>
-                            <h3>Technical Roles Requiring Multilingual Skills</h3>
-                            <p>International or client-facing technology roles where speaking English, Spanish, Catalan, Punjabi and Hindi natively is a genuine asset — especially in global tech firms, consulting or support functions.</p>
-                            <div class="role-skills">
-                                <span class="role-tag">English (Native)</span><span class="role-tag">Spanish (Native)</span><span class="role-tag">Catalan (Native)</span><span class="role-tag">Punjabi (Native)</span><span class="role-tag">Hindi (Professional)</span>
-                            </div>
-                        </article>
-
-                    </div>
+                <div class="roles-grid">
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">💻</span>
+                        <h3>Graduate Software Engineer</h3>
+                        <p>Building backend services, REST APIs and web applications using Java, JavaScript, Python or C#. Comfortable with Git, agile workflows and clean tested code.</p>
+                        <div class="role-tags">
+                            <span class="rtag">Java</span><span class="rtag">Python</span><span class="rtag">JavaScript</span><span class="rtag">REST APIs</span><span class="rtag">Agile</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">☁️</span>
+                        <h3>Junior Cloud / DevOps Engineer</h3>
+                        <p>Supporting cloud infrastructure on AWS, automating deployments and working with containers. Hands-on with EC2, S3, Lambda, IAM, Docker and CI/CD.</p>
+                        <div class="role-tags">
+                            <span class="rtag">AWS</span><span class="rtag">Docker</span><span class="rtag">Linux</span><span class="rtag">CI/CD</span><span class="rtag">Kubernetes</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">🔒</span>
+                        <h3>Junior Cybersecurity Analyst</h3>
+                        <p>Analysing threats, supporting incident response and applying security controls. Background in network security, IAM, encryption and regulated financial environments.</p>
+                        <div class="role-tags">
+                            <span class="rtag">Network Security</span><span class="rtag">IAM</span><span class="rtag">Encryption</span><span class="rtag">Compliance</span><span class="rtag">SIEM</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">📊</span>
+                        <h3>Data Analyst / Junior Data Engineer</h3>
+                        <p>Cleaning, analysing and visualising data to support business decisions. Skilled in Python (NumPy, Pandas), SQL, statistical analysis and building dashboards.</p>
+                        <div class="role-tags">
+                            <span class="rtag">Python</span><span class="rtag">SQL</span><span class="rtag">Pandas</span><span class="rtag">Data Viz</span><span class="rtag">Analytics</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">🤖</span>
+                        <h3>Junior ML / AI Engineer</h3>
+                        <p>Developing and evaluating machine learning models for classification, prediction and NLP. MSc modules underpin applied project work with Scikit-learn and Python.</p>
+                        <div class="role-tags">
+                            <span class="rtag">Scikit-learn</span><span class="rtag">NLP</span><span class="rtag">Pandas</span><span class="rtag">Model Eval</span><span class="rtag">Python</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">🌐</span>
+                        <h3>Junior Full-Stack Developer</h3>
+                        <p>Building responsive, accessible web apps from frontend to database. Experience with React, Node.js, HTML/CSS, REST APIs and cloud platform deployments.</p>
+                        <div class="role-tags">
+                            <span class="rtag">React</span><span class="rtag">Node.js</span><span class="rtag">HTML/CSS</span><span class="rtag">PostgreSQL</span><span class="rtag">REST</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">🖥️</span>
+                        <h3>IT Graduate Scheme / Systems Analyst</h3>
+                        <p>Enterprise IT support, systems analysis and infrastructure work. Proven at Bank of America, Amadeus and ENI — deployments, breakfix, compliance and documentation.</p>
+                        <div class="role-tags">
+                            <span class="rtag">Enterprise IT</span><span class="rtag">Systems Analysis</span><span class="rtag">ITIL</span><span class="rtag">Windows Server</span><span class="rtag">Linux</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">📱</span>
+                        <h3>Android / Mobile Developer</h3>
+                        <p>Building native and cross-platform mobile applications. Studied mobile app development as a core module and built PWAs and Android apps with offline-first architecture.</p>
+                        <div class="role-tags">
+                            <span class="rtag">Android Studio</span><span class="rtag">Java</span><span class="rtag">PWA</span><span class="rtag">Service Workers</span><span class="rtag">UX/UI</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">🗄️</span>
+                        <h3>Junior Database Administrator</h3>
+                        <p>Designing and maintaining relational databases, writing optimised queries and ensuring data integrity. Solid grounding in SQL, MySQL, PostgreSQL and ER modelling.</p>
+                        <div class="role-tags">
+                            <span class="rtag">MySQL</span><span class="rtag">PostgreSQL</span><span class="rtag">SQL</span><span class="rtag">ER Modelling</span><span class="rtag">Query Opt.</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">🧪</span>
+                        <h3>QA / Test Engineer (Graduate)</h3>
+                        <p>Ensuring software quality through testing strategies, writing test cases and identifying defects early. Strong software engineering fundamentals across multiple languages.</p>
+                        <div class="role-tags">
+                            <span class="rtag">Testing</span><span class="rtag">Debugging</span><span class="rtag">Documentation</span><span class="rtag">Agile</span><span class="rtag">JIRA</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">🏦</span>
+                        <h3>FinTech / Banking Technology Graduate</h3>
+                        <p>Technology roles in financial services — trading tools, compliance systems or internal platforms. Direct regulated-industry experience from Bank of America sets me apart.</p>
+                        <div class="role-tags">
+                            <span class="rtag">Financial Services</span><span class="rtag">Compliance</span><span class="rtag">Enterprise Systems</span><span class="rtag">Security</span><span class="rtag">Java</span>
+                        </div>
+                    </article>
+                    <article class="role-card">
+                        <span class="role-ico" aria-hidden="true">🌍</span>
+                        <h3>Multilingual Technical Roles</h3>
+                        <p>International or client-facing tech roles where speaking English, Spanish, Catalan, Punjabi and Hindi natively is a genuine asset — global firms, consulting, support.</p>
+                        <div class="role-tags">
+                            <span class="rtag">English</span><span class="rtag">Spanish</span><span class="rtag">Catalan</span><span class="rtag">Punjabi</span><span class="rtag">Hindi</span>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- ══════════════════════════════════════
+             PROJECTS
+        ═══════════════════════════════════════ -->
         <section id="projects" aria-labelledby="projects-heading">
             <div class="container">
-                <div>
-                    <header class="section-header">
-                        <h2 id="projects-heading">Featured Projects</h2>
-                        <p>Innovative solutions for real-world challenges</p>
-                    </header>
+                <header class="section-head">
+                    <div class="section-tag mono">04 / Projects</div>
+                    <h2 id="projects-heading">Featured Projects</h2>
+                    <p>Innovative solutions for real-world challenges</p>
+                </header>
 
-                    <div class="projects-grid" role="list">
-                        <article class="project-card" role="listitem">
-                            <div class="project-header">
-                                <div class="project-icon" aria-hidden="true">🔒</div>
+                <div class="projects-grid" role="list">
+                    <article class="proj-card" role="listitem">
+                        <div class="proj-top">
+                            <div class="proj-icon-wrap" aria-hidden="true">🔒</div>
+                            <div>
                                 <h3>CipherOS</h3>
-                                <p style="color: var(--text-muted); font-size: 1rem;">Cryptography Toolkit</p>
+                                <p class="proj-type mono">// Cryptography Toolkit</p>
                             </div>
-                            <div class="project-body">
-                                <p>Browser-based cryptographic toolkit with retro CRT terminal aesthetic. Features AES-256 encryption, SHA/MD5 hashing, JWT decoder, password strength analyzer, and key generator using Web Crypto API. Demonstrates applied security concepts from MSc coursework with interactive command-line interface.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Web Crypto API</span>
-                                    <span class="tag">Cryptography</span>
-                                    <span class="tag">Security</span>
-                                    <span class="tag">Vanilla JS</span>
-                                </div>
-                            </div>
-                        </article>
+                        </div>
+                        <p class="proj-desc">Browser-based cryptographic toolkit with retro CRT terminal aesthetic. Features AES-256 encryption, SHA/MD5 hashing, JWT decoder, password strength analyser and key generator using Web Crypto API.</p>
+                        <div class="tag-row">
+                            <span class="tag">Web Crypto API</span><span class="tag">Cryptography</span><span class="tag">Security</span><span class="tag">Vanilla JS</span>
+                        </div>
+                    </article>
 
-                        <article class="project-card" role="listitem">
-                            <div class="project-header">
-                                <div class="project-icon" aria-hidden="true">🌐</div>
+                    <article class="proj-card" role="listitem">
+                        <div class="proj-top">
+                            <div class="proj-icon-wrap" aria-hidden="true">🌐</div>
+                            <div>
                                 <h3>NetScan Pro</h3>
-                                <p style="color: var(--text-muted); font-size: 1rem;">Network Vulnerability Scanner</p>
+                                <p class="proj-type mono">// Network Vulnerability Scanner</p>
                             </div>
-                            <div class="project-body">
-                                <p>Interactive network vulnerability scanner simulation demonstrating Nmap/Nessus concepts. Features 4 scan modes, real CVE database with 12 vulnerabilities including Log4Shell and EternalBlue, OS fingerprinting, and professional security reporting. Educational tool showcasing network security principles.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Network Security</span>
-                                    <span class="tag">CVE Database</span>
-                                    <span class="tag">Port Scanning</span>
-                                    <span class="tag">Penetration Testing</span>
-                                </div>
-                            </div>
-                        </article>
+                        </div>
+                        <p class="proj-desc">Interactive network vulnerability scanner simulation demonstrating Nmap/Nessus concepts. Features 4 scan modes, real CVE database with 12 vulnerabilities including Log4Shell and EternalBlue, OS fingerprinting and professional security reporting.</p>
+                        <div class="tag-row">
+                            <span class="tag">Network Security</span><span class="tag">CVE Database</span><span class="tag">Port Scanning</span><span class="tag">Pen Testing</span>
+                        </div>
+                    </article>
 
-                        <article class="project-card" role="listitem">
-                            <div class="project-header">
-                                <div class="project-icon" aria-hidden="true">✈️</div>
+                    <article class="proj-card" role="listitem">
+                        <div class="proj-top">
+                            <div class="proj-icon-wrap" aria-hidden="true">✈️</div>
+                            <div>
                                 <h3>Wandr</h3>
-                                <p style="color: var(--text-muted); font-size: 1rem;">AI Travel Planner PWA</p>
+                                <p class="proj-type mono">// AI Travel Planner PWA</p>
                             </div>
-                            <div class="project-body">
-                                <p>Progressive Web App with client-side AI matching engine for personalized travel recommendations. Features natural language query processing, budget planning, offline support via service workers, and installable on mobile/desktop. Evolution of BSc Final Year Project with enhanced UX and PWA standards.</p>
-                                <div class="project-tags">
-                                    <span class="tag">PWA</span>
-                                    <span class="tag">AI Matching</span>
-                                    <span class="tag">Service Workers</span>
-                                    <span class="tag">Offline-First</span>
-                                </div>
-                            </div>
-                        </article>
+                        </div>
+                        <p class="proj-desc">Progressive Web App with client-side AI matching engine for personalised travel recommendations. Features natural language query processing, budget planning, offline support via service workers and installable on mobile/desktop.</p>
+                        <div class="tag-row">
+                            <span class="tag">PWA</span><span class="tag">AI Matching</span><span class="tag">Service Workers</span><span class="tag">Offline-First</span>
+                        </div>
+                    </article>
 
-                        <article class="project-card" role="listitem">
-                            <div class="project-header">
-                                <div class="project-icon" aria-hidden="true">📋</div>
+                    <article class="proj-card" role="listitem">
+                        <div class="proj-top">
+                            <div class="proj-icon-wrap" aria-hidden="true">📋</div>
+                            <div>
                                 <h3>CodeFlow</h3>
-                                <p style="color: var(--text-muted); font-size: 1rem;">Project Management Platform</p>
+                                <p class="proj-type mono">// Project Management Platform</p>
                             </div>
-                            <div class="project-body">
-                                <p>Full-stack Kanban project management app with JWT authentication, drag-and-drop functionality, and localStorage persistence. Features task management, activity logging, multiple projects, and simulated authentication flows. Demonstrates software engineering fundamentals without frameworks.</p>
-                                <div class="project-tags">
-                                    <span class="tag">JWT Auth</span>
-                                    <span class="tag">Kanban Board</span>
-                                    <span class="tag">Drag & Drop</span>
-                                    <span class="tag">Full-Stack</span>
-                                </div>
-                            </div>
-                        </article>
+                        </div>
+                        <p class="proj-desc">Full-stack Kanban project management app with JWT authentication, drag-and-drop functionality and localStorage persistence. Features task management, activity logging and multiple projects without frameworks.</p>
+                        <div class="tag-row">
+                            <span class="tag">JWT Auth</span><span class="tag">Kanban Board</span><span class="tag">Drag &amp; Drop</span><span class="tag">Full-Stack</span>
+                        </div>
+                    </article>
 
-                        <article class="project-card" role="listitem">
-                            <div class="project-header">
-                                <div class="project-icon" aria-hidden="true">📊</div>
+                    <article class="proj-card" role="listitem">
+                        <div class="proj-top">
+                            <div class="proj-icon-wrap" aria-hidden="true">📊</div>
+                            <div>
                                 <h3>DevMetrics</h3>
-                                <p style="color: var(--text-muted); font-size: 1rem;">GitHub Analytics Dashboard</p>
+                                <p class="proj-type mono">// GitHub Analytics Dashboard</p>
                             </div>
-                            <div class="project-body">
-                                <p>Real-time GitHub profile analytics dashboard consuming GitHub REST API. Features language distribution charts, contribution heatmap, repository metrics, and computed developer score (0-100). Demonstrates API integration, data visualization with Canvas, and asynchronous JavaScript patterns.</p>
-                                <div class="project-tags">
-                                    <span class="tag">GitHub API</span>
-                                    <span class="tag">Data Visualization</span>
-                                    <span class="tag">Canvas Charts</span>
-                                    <span class="tag">REST API</span>
-                                </div>
-                            </div>
-                        </article>
+                        </div>
+                        <p class="proj-desc">Real-time GitHub profile analytics consuming GitHub REST API. Features language distribution charts, contribution heatmap, repository metrics and a computed developer score (0–100). Canvas-based data visualisation.</p>
+                        <div class="tag-row">
+                            <span class="tag">GitHub API</span><span class="tag">Data Viz</span><span class="tag">Canvas Charts</span><span class="tag">REST API</span>
+                        </div>
+                    </article>
 
-                        <article class="project-card" role="listitem">
-                            <div class="project-header">
-                                <div class="project-icon" aria-hidden="true">🛡️</div>
+                    <article class="proj-card" role="listitem">
+                        <div class="proj-top">
+                            <div class="proj-icon-wrap" aria-hidden="true">🛡️</div>
+                            <div>
                                 <h3>SecureVault</h3>
-                                <p style="color: var(--text-muted); font-size: 1rem;">Cloud Security Dashboard</p>
+                                <p class="proj-type mono">// Cloud Security Dashboard</p>
                             </div>
-                            <div class="project-body">
-                                <p>Real-time cloud security monitoring dashboard simulating AWS security operations center. Features live threat feed, world threat map, AWS region health monitoring, IAM activity charts, and compliance scoring. Reflects enterprise security practices from Bank of America experience.</p>
-                                <div class="project-tags">
-                                    <span class="tag">Cloud Security</span>
-                                    <span class="tag">AWS Monitoring</span>
-                                    <span class="tag">IAM</span>
-                                    <span class="tag">SOC Dashboard</span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
+                        </div>
+                        <p class="proj-desc">Real-time cloud security monitoring dashboard simulating an AWS SOC. Live threat feed, world threat map, AWS region health monitoring, IAM activity charts and compliance scoring — inspired by Bank of America experience.</p>
+                        <div class="tag-row">
+                            <span class="tag">Cloud Security</span><span class="tag">AWS Monitoring</span><span class="tag">IAM</span><span class="tag">SOC Dashboard</span>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- ══════════════════════════════════════
+             SKILLS
+        ═══════════════════════════════════════ -->
         <section id="skills" aria-labelledby="skills-heading">
             <div class="container">
-                <div>
-                    <header class="section-header">
-                        <h2 id="skills-heading">Technical Skills</h2>
-                        <p>Comprehensive expertise across modern technology stack</p>
-                    </header>
+                <header class="section-head">
+                    <div class="section-tag mono">05 / Skills</div>
+                    <h2 id="skills-heading">Technical Skills</h2>
+                    <p>Comprehensive expertise across the modern technology stack</p>
+                </header>
 
-                    <div class="skills-section" role="list">
-                        <article class="skill-category" role="listitem">
-                            <h3><span aria-hidden="true">💻</span> Programming</h3>
-                            <ul>
-                                <li>Java (OOP, Enterprise)</li>
-                                <li>JavaScript (ES6+, Node.js, React)</li>
-                                <li>C# (.NET Framework)</li>
-                                <li>Python (Data Science, ML)</li>
-                                <li>HTML5 & CSS3</li>
-                                <li>RESTful APIs</li>
-                                <li>Functional Programming</li>
-                            </ul>
-                        </article>
-
-                        <article class="skill-category" role="listitem">
-                            <h3><span aria-hidden="true">☁️</span> Cloud & DevOps</h3>
-                            <ul>
-                                <li>AWS (EC2, S3, Lambda, IAM)</li>
-                                <li>Cloud Architecture</li>
-                                <li>Docker & Containerization</li>
-                                <li>Microservices</li>
-                                <li>Kubernetes (basics)</li>
-                                <li>Linux/Unix Administration</li>
-                                <li>Windows Server</li>
-                            </ul>
-                        </article>
-
-                        <article class="skill-category" role="listitem">
-                            <h3><span aria-hidden="true">🗄️</span> Databases</h3>
-                            <ul>
-                                <li>SQL (MySQL, PostgreSQL)</li>
-                                <li>Database Design</li>
-                                <li>ER Modeling</li>
-                                <li>Query Optimization</li>
-                                <li>Data Structures</li>
-                                <li>Algorithms</li>
-                                <li>Data Analytics</li>
-                            </ul>
-                        </article>
-
-                        <article class="skill-category" role="listitem">
-                            <h3><span aria-hidden="true">🤖</span> AI & ML</h3>
-                            <ul>
-                                <li>Machine Learning</li>
-                                <li>Natural Language Processing</li>
-                                <li>Statistical Analysis</li>
-                                <li>NumPy, Pandas, Scikit-learn</li>
-                                <li>Predictive Modeling</li>
-                                <li>Model Evaluation</li>
-                                <li>AI Integration</li>
-                            </ul>
-                        </article>
-
-                        <article class="skill-category" role="listitem">
-                            <h3><span aria-hidden="true">🔒</span> Security</h3>
-                            <ul>
-                                <li>Network Security</li>
-                                <li>Cybersecurity Principles</li>
-                                <li>Authentication & Authorization</li>
-                                <li>Secure Design Patterns</li>
-                                <li>IAM</li>
-                                <li>Encryption</li>
-                                <li>Compliance</li>
-                            </ul>
-                        </article>
-
-                        <article class="skill-category" role="listitem">
-                            <h3><span aria-hidden="true">📱</span> Web & Mobile</h3>
-                            <ul>
-                                <li>Progressive Web Apps</li>
-                                <li>Android Development</li>
-                                <li>Responsive Design</li>
-                                <li>Cross-Platform Development</li>
-                                <li>UX/UI Design</li>
-                                <li>Accessibility (WCAG)</li>
-                                <li>Performance Optimization</li>
-                            </ul>
-                        </article>
-
-                        <article class="skill-category" role="listitem">
-                            <h3><span aria-hidden="true">🌍</span> Languages</h3>
-                            <ul>
-                                <li>English (Native / Bilingual)</li>
-                                <li>Spanish (Native)</li>
-                                <li>Catalan (Native)</li>
-                                <li>Punjabi (Native)</li>
-                                <li>Hindi (Professional)</li>
-                            </ul>
-                        </article>
-                    </div>
+                <div class="skills-grid" role="list">
+                    <article class="skill-cat" role="listitem">
+                        <h3><span aria-hidden="true">💻</span> Programming</h3>
+                        <ul>
+                            <li>Java (OOP, Enterprise)</li>
+                            <li>JavaScript (ES6+, Node.js, React)</li>
+                            <li>C# (.NET Framework)</li>
+                            <li>Python (Data Science, ML)</li>
+                            <li>HTML5 &amp; CSS3</li>
+                            <li>RESTful APIs</li>
+                            <li>Functional Programming</li>
+                        </ul>
+                    </article>
+                    <article class="skill-cat" role="listitem">
+                        <h3><span aria-hidden="true">☁️</span> Cloud &amp; DevOps</h3>
+                        <ul>
+                            <li>AWS (EC2, S3, Lambda, IAM)</li>
+                            <li>Cloud Architecture</li>
+                            <li>Docker &amp; Containerisation</li>
+                            <li>Microservices</li>
+                            <li>Kubernetes (basics)</li>
+                            <li>Linux/Unix Administration</li>
+                            <li>Windows Server</li>
+                        </ul>
+                    </article>
+                    <article class="skill-cat" role="listitem">
+                        <h3><span aria-hidden="true">🗄️</span> Databases</h3>
+                        <ul>
+                            <li>SQL (MySQL, PostgreSQL)</li>
+                            <li>Database Design</li>
+                            <li>ER Modeling</li>
+                            <li>Query Optimisation</li>
+                            <li>Data Structures</li>
+                            <li>Algorithms</li>
+                            <li>Data Analytics</li>
+                        </ul>
+                    </article>
+                    <article class="skill-cat" role="listitem">
+                        <h3><span aria-hidden="true">🤖</span> AI &amp; ML</h3>
+                        <ul>
+                            <li>Machine Learning</li>
+                            <li>Natural Language Processing</li>
+                            <li>Statistical Analysis</li>
+                            <li>NumPy, Pandas, Scikit-learn</li>
+                            <li>Predictive Modeling</li>
+                            <li>Model Evaluation</li>
+                            <li>AI Integration</li>
+                        </ul>
+                    </article>
+                    <article class="skill-cat" role="listitem">
+                        <h3><span aria-hidden="true">🔒</span> Security</h3>
+                        <ul>
+                            <li>Network Security</li>
+                            <li>Cybersecurity Principles</li>
+                            <li>Authentication &amp; Authorisation</li>
+                            <li>Secure Design Patterns</li>
+                            <li>IAM</li>
+                            <li>Encryption</li>
+                            <li>Compliance</li>
+                        </ul>
+                    </article>
+                    <article class="skill-cat" role="listitem">
+                        <h3><span aria-hidden="true">📱</span> Web &amp; Mobile</h3>
+                        <ul>
+                            <li>Progressive Web Apps</li>
+                            <li>Android Development</li>
+                            <li>Responsive Design</li>
+                            <li>Cross-Platform Development</li>
+                            <li>UX/UI Design</li>
+                            <li>Accessibility (WCAG)</li>
+                            <li>Performance Optimisation</li>
+                        </ul>
+                    </article>
+                    <article class="skill-cat" role="listitem">
+                        <h3><span aria-hidden="true">🌍</span> Languages</h3>
+                        <ul>
+                            <li>English (Native / Bilingual)</li>
+                            <li>Spanish (Native)</li>
+                            <li>Catalan (Native)</li>
+                            <li>Punjabi (Native)</li>
+                            <li>Hindi (Professional)</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- GitHub Projects Section -->
-        <section id="github" aria-labelledby="github-heading">
+        <!-- ══════════════════════════════════════
+             GITHUB
+        ═══════════════════════════════════════ -->
+        <section id="github" aria-labelledby="gh-heading">
             <div class="container">
-                <div>
-                    <header class="section-header">
-                        <h2 id="github-heading">GitHub Projects</h2>
-                        <p>Open source contributions and personal projects</p>
-                    </header>
-
-                    <div id="githubProjects" class="github-grid" role="list" aria-live="polite">
-                        <div class="loading">
-                            <div class="spinner" role="status"></div>
-                            <p style="margin-top: 1rem;">Loading GitHub repositories...</p>
-                        </div>
+                <header class="section-head">
+                    <div class="section-tag mono">06 / GitHub</div>
+                    <h2 id="gh-heading">GitHub Projects</h2>
+                    <p>Open source contributions and personal repositories</p>
+                </header>
+                <div id="githubProjects" class="github-grid" role="list" aria-live="polite">
+                    <div class="loading">
+                        <div class="spinner" role="status" aria-label="Loading repositories"></div>
+                        <p>Loading repositories&hellip;</p>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- Contact / Hire Me Section -->
-    <section id="contact" aria-labelledby="contact-heading" style="min-height:auto; padding: 8rem 0; background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(249,115,22,0.06));">
+    <!-- ══════════════════════════════════════
+         CONTACT
+    ═══════════════════════════════════════ -->
+    <section id="contact" aria-labelledby="contact-heading">
         <div class="container">
-            <header class="section-header">
+            <header class="section-head">
+                <div class="section-tag mono">07 / Contact</div>
                 <h2 id="contact-heading">Get In Touch</h2>
-                <p>Looking for a driven graduate who hits the ground running? I'd love to hear from you.</p>
+                <p>Looking for a driven graduate who hits the ground running?</p>
             </header>
+
             <div class="contact-card">
-                <div class="contact-card-inner">
-                    <div class="contact-card-text">
-                        <h3>Amritpal Singh Kaur <span class="available-badge">✅ Available Now</span></h3>
-                        <p>MSc Computer Science (QMUL, 2026) · BSc 2:1 · Enterprise IT background at Bank of America, Amadeus &amp; ENI · London-based, open to remote</p>
+                <div class="contact-inner">
+                    <div class="contact-text">
+                        <h3>Amritpal Singh Kaur
+                            <span class="avail-badge"><span class="pulse-dot" aria-hidden="true"></span> Available Now</span>
+                        </h3>
+                        <p>MSc Computer Science (QMUL, 2026) &bull; BSc 2:1 &bull; Enterprise IT at BofA, Amadeus &amp; ENI &bull; London-based, open to remote</p>
                         <div class="contact-links">
-                            <a href="mailto:sharysingh1144@gmail.com" class="contact-link-btn contact-link-email">
-                                <span aria-hidden="true">📧</span> sharysingh1144@gmail.com
+                            <a href="mailto:ap.singhkaur@gmail.com" class="clink clink--email">
+                                <span aria-hidden="true">✉</span> ap.singhkaur@gmail.com
                             </a>
-                            <a href="tel:+447722145765" class="contact-link-btn contact-link-phone">
-                                <span aria-hidden="true">📱</span> 07722145765
+                            <a href="tel:+447722145765" class="clink clink--phone">
+                                <span aria-hidden="true">☎</span> 07722 145 765
                             </a>
-                            <a href="https://linkedin.com/in/amritpal-singh-kaur-b54b9a1b1" target="_blank" rel="noopener noreferrer" class="contact-link-btn contact-link-linkedin">
-                                <span aria-hidden="true">💼</span> LinkedIn
+                            <a href="https://linkedin.com/in/amritpal-singh-kaur-b54b9a1b1" target="_blank" rel="noopener noreferrer" class="clink clink--li">
+                                <span aria-hidden="true">⬡</span> LinkedIn
                             </a>
-                            <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="contact-link-btn contact-link-github">
-                                <span aria-hidden="true">🔗</span> GitHub
+                            <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" class="clink clink--gh">
+                                <span aria-hidden="true">⌥</span> GitHub
                             </a>
                         </div>
-                        <div class="contact-roles">
-                            <span class="open-tag">London &amp; Remote</span>
-                            <span class="open-tag">Graduate / Entry-Level</span>
-                            <span class="open-tag">Full-Time</span>
-                            <span class="open-tag">Part-Time / Contract</span>
-                            <span class="open-tag">Grad Schemes Welcome</span>
+                        <div class="contact-tags">
+                            <span class="ctag">London &amp; Remote</span>
+                            <span class="ctag">Graduate / Entry-Level</span>
+                            <span class="ctag">Full-Time</span>
+                            <span class="ctag">Part-Time / Contract</span>
+                            <span class="ctag">Grad Schemes Welcome</span>
                         </div>
                     </div>
-                    <div class="contact-card-cta">
-                        <a href="mailto:sharysingh1144@gmail.com" class="btn btn-hire btn-large">
-                            📩 Email Me
+                    <div class="contact-cta">
+                        <a href="mailto:ap.singhkaur@gmail.com" class="btn btn-cta">
+                            ✉ Email Me
                         </a>
-                        <p style="color:var(--text-muted); margin-top:1rem; font-size:0.95rem;">Usually responds within 24 hours</p>
+                        <p class="cta-note mono">Usually responds within 24 hrs</p>
                     </div>
                 </div>
             </div>
@@ -691,24 +717,21 @@
 
     <!-- Footer -->
     <footer role="contentinfo">
-        <div class="container">
-            <nav class="social-links" aria-label="Social media links">
-                <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" aria-label="Visit GitHub profile">
-                    <span aria-hidden="true">🔗</span>
-                    <span class="sr-only">GitHub</span>
+        <div class="container footer-inner">
+            <div class="footer-logo">APSK</div>
+            <nav aria-label="Footer social links" class="footer-socials">
+                <a href="https://github.com/Amrit004" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <span aria-hidden="true">⌥</span><span class="sr-only">GitHub</span>
                 </a>
-                <a href="https://linkedin.com/in/amritpal-singh-kaur-b54b9a1b1" target="_blank" rel="noopener noreferrer" aria-label="Visit LinkedIn profile">
-                    <span aria-hidden="true">💼</span>
-                    <span class="sr-only">LinkedIn</span>
+                <a href="https://linkedin.com/in/amritpal-singh-kaur-b54b9a1b1" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <span aria-hidden="true">⬡</span><span class="sr-only">LinkedIn</span>
                 </a>
-                <a href="mailto:sharysingh1144@gmail.com" aria-label="Send email">
-                    <span aria-hidden="true">📧</span>
-                    <span class="sr-only">Email</span>
+                <a href="mailto:ap.singhkaur@gmail.com" aria-label="Email">
+                    <span aria-hidden="true">✉</span><span class="sr-only">Email</span>
                 </a>
             </nav>
-            <p style="color: var(--text-muted); font-size: 1.1rem;">&copy; 2026 Amritpal Singh Kaur (APSK)</p>
-            <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">BSc Computer Science (2:1) · MSc Advanced Computer Science (QMUL) · London, UK</p>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">📧 sharysingh1144@gmail.com · 📱 07722145765</p>
+            <p class="footer-copy">&copy; 2026 Amritpal Singh Kaur &bull; BSc 2:1 &bull; MSc Advanced CS (QMUL) &bull; London, UK</p>
+            <p class="footer-copy mono" style="margin-top:0.4rem;font-size:0.78rem;">ap.singhkaur@gmail.com &bull; 07722 145 765</p>
         </div>
     </footer>
 
