@@ -167,6 +167,28 @@
         achObserver.observe(item);
     });
 
+    /* ── Theme Toggle (Light / Dark) ─────────────── */
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = themeToggle.querySelector('.theme-icon');
+
+    function applyTheme(dark) {
+        document.body.classList.toggle('dark', dark);
+        themeIcon.textContent = dark ? '☀️' : '🌙';
+        themeToggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        try { localStorage.setItem('apsk-theme', dark ? 'dark' : 'light'); } catch(e) {}
+    }
+
+    // Load saved preference, default to light
+    (function() {
+        let saved = 'light';
+        try { saved = localStorage.getItem('apsk-theme') || 'light'; } catch(e) {}
+        applyTheme(saved === 'dark');
+    })();
+
+    themeToggle.addEventListener('click', () => {
+        applyTheme(!document.body.classList.contains('dark'));
+    });
+
     /* ── Role Category Tabs ──────────────────────── */
     const roleTabs = document.querySelectorAll('.rtab');
     const roleCards = document.querySelectorAll('#rolesGrid .role-card');
