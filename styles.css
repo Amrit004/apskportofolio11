@@ -873,74 +873,67 @@ footer { padding: 3rem 0; border-top: 1px solid var(--border); }
 
 /* ══════════════════════════════════════════════════════
    3D SCROLL REVEAL ANIMATIONS
-   Elements burst in from depth as you scroll down
    ══════════════════════════════════════════════════════ */
 
-/* Base state — hidden, pushed back in Z-space */
+/* Base state — hidden, pushed back slightly */
 .fade-in {
   opacity: 0;
-  transform: perspective(1000px) translateY(40px) translateZ(-60px) rotateX(8deg);
+  transform: perspective(1200px) translateY(32px) translateZ(-30px) rotateX(5deg);
   transform-origin: center bottom;
   transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
-
-/* Revealed state — snaps forward into place */
 .fade-in.visible {
   opacity: 1;
-  transform: perspective(1000px) translateY(0) translateZ(0) rotateX(0deg);
+  transform: perspective(1200px) translateY(0) translateZ(0) rotateX(0deg);
 }
 
-/* Variant: slide from left */
+/* Slide from left */
 .fade-left {
   opacity: 0;
-  transform: perspective(1000px) translateX(-50px) translateZ(-40px) rotateY(10deg);
+  transform: perspective(1200px) translateX(-40px) translateZ(-20px) rotateY(6deg);
   transform-origin: right center;
   transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 .fade-left.visible {
   opacity: 1;
-  transform: perspective(1000px) translateX(0) translateZ(0) rotateY(0deg);
+  transform: perspective(1200px) translateX(0) translateZ(0) rotateY(0deg);
 }
 
-/* Variant: slide from right */
+/* Slide from right */
 .fade-right {
   opacity: 0;
-  transform: perspective(1000px) translateX(50px) translateZ(-40px) rotateY(-10deg);
+  transform: perspective(1200px) translateX(40px) translateZ(-20px) rotateY(-6deg);
   transform-origin: left center;
   transition:
-    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 }
 .fade-right.visible {
   opacity: 1;
-  transform: perspective(1000px) translateX(0) translateZ(0) rotateY(0deg);
+  transform: perspective(1200px) translateX(0) translateZ(0) rotateY(0deg);
 }
 
-/* Staggered delay helpers (applied inline or via JS) */
-.delay-1 { transition-delay: 0.1s !important; }
-.delay-2 { transition-delay: 0.2s !important; }
-.delay-3 { transition-delay: 0.3s !important; }
-.delay-4 { transition-delay: 0.4s !important; }
-.delay-5 { transition-delay: 0.5s !important; }
+/* Delay helpers */
+.delay-1 { transition-delay: 0.08s !important; }
+.delay-2 { transition-delay: 0.16s !important; }
+.delay-3 { transition-delay: 0.24s !important; }
+.delay-4 { transition-delay: 0.32s !important; }
+.delay-5 { transition-delay: 0.40s !important; }
 
-/* Card hover — subtle 3D tilt effect */
-.timeline-item,
-.edu-card,
-.role-card,
-.project-card,
-.gh-card {
-  transform-style: preserve-3d;
-  transition:
-    border-color 0.3s ease,
-    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s ease;
+/* Reduced motion — respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in, .fade-left, .fade-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 

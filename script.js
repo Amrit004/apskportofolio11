@@ -15,8 +15,14 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ── 3D SCROLL REVEAL ────────────────────────────── */
-// Observe all animated elements
-const animatedEls = document.querySelectorAll('.fade-in, .fade-left, .fade-right');
+// Add fade-in class to all cards/items that need animating
+document.querySelectorAll(
+  '.timeline-item:not(.fade-left):not(.fade-right), .edu-card, .project-card, .gh-card, .skill-group, .languages-highlight, .contact-card'
+).forEach(el => {
+  if (!el.classList.contains('fade-in') && !el.classList.contains('fade-left') && !el.classList.contains('fade-right')) {
+    el.classList.add('fade-in');
+  }
+});
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -25,30 +31,29 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.05, rootMargin: '0px 0px 0px 0px' });
 
-animatedEls.forEach(el => revealObserver.observe(el));
-
-// Auto-stagger children inside sections
-document.querySelectorAll('.timeline, .edu-grid, .projects-grid, .roles-grid, .gh-grid, .skills-container').forEach(container => {
-  const children = container.querySelectorAll('.fade-in, .fade-left, .fade-right, .timeline-item, .edu-card, .project-card, .role-card.visible, .skill-group');
-  children.forEach((child, i) => {
-    if (!child.style.transitionDelay) {
-      child.style.transitionDelay = `${i * 0.08}s`;
-    }
-  });
+// Observe everything — including elements already in viewport
+document.querySelectorAll('.fade-in, .fade-left, .fade-right').forEach((el, i) => {
+  // Stagger siblings within the same parent
+  const siblings = el.parentElement ? el.parentElement.querySelectorAll('.fade-in, .fade-left, .fade-right') : [];
+  const idx = Array.from(siblings).indexOf(el);
+  if (!el.style.transitionDelay && idx > 0) {
+    el.style.transitionDelay = `${idx * 0.07}s`;
+  }
+  revealObserver.observe(el);
 });
 
 /* ── 3D CARD TILT ON HOVER (desktop only) ────────── */
 function addTilt(selector, maxTilt = 6) {
-  if (window.matchMedia('(pointer: coarse)').matches) return; // skip touch devices
+  if (window.matchMedia('(pointer: coarse)').matches) return;
   document.querySelectorAll(selector).forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
-      const cx   = rect.left + rect.width  / 2;
-      const cy   = rect.top  + rect.height / 2;
-      const dx   = (e.clientX - cx) / (rect.width  / 2);
-      const dy   = (e.clientY - cy) / (rect.height / 2);
+      const cx = rect.left + rect.width  / 2;
+      const cy = rect.top  + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width  / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
       card.style.transform = `perspective(800px) rotateY(${dx * maxTilt}deg) rotateX(${-dy * maxTilt}deg) translateZ(8px)`;
       card.style.boxShadow = `${-dx * 12}px ${dy * 12}px 40px rgba(0,0,0,0.4), 0 0 20px rgba(99,212,176,0.08)`;
     });
@@ -63,6 +68,7 @@ addTilt('.project-card', 7);
 addTilt('.timeline-item', 4);
 addTilt('.edu-card', 5);
 addTilt('.role-card', 6);
+
 
 
 /* ── MOBILE NAVIGATION ───────────────────────────── */
