@@ -167,6 +167,27 @@
         achObserver.observe(item);
     });
 
+    /* ── Role Category Tabs ──────────────────────── */
+    const roleTabs = document.querySelectorAll('.rtab');
+    const roleCards = document.querySelectorAll('#rolesGrid .role-card');
+
+    roleTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            roleTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+            tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
+            const cat = tab.dataset.cat;
+            roleCards.forEach(card => {
+                const cardCats = card.dataset.cat || '';
+                if (cat === 'all' || cardCats.includes(cat)) {
+                    card.classList.remove('hidden-cat');
+                } else {
+                    card.classList.add('hidden-cat');
+                }
+            });
+        });
+    });
+
     /* ── GitHub Repositories ─────────────────────── */
     async function fetchGitHubRepos() {
         const username = 'Amrit004';
@@ -230,7 +251,7 @@
                               color:var(--green);text-decoration:none;font-size:0.8rem;
                               font-family:var(--font-mono);border:1px solid var(--border-2);
                               padding:0.3rem 0.8rem;border-radius:6px;transition:all 0.2s;"
-                       onmouseover="this.style.background='rgba(0,255,163,0.08)'"
+                       onmouseover="this.style.background='rgba(26,143,94,0.08)'"
                        onmouseout="this.style.background='transparent'">
                         View on GitHub →
                     </a>

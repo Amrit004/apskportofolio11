@@ -885,6 +885,46 @@ section {
     border: 1px solid rgba(201,81,10,0.18);
 }
 
+/* Role category tabs */
+.roles-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.2rem;
+}
+.rtab {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    padding: 0.45rem 1.1rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-2);
+    background: var(--bg-1);
+    color: var(--text-2);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.rtab:hover { background: var(--bg-2); color: var(--text); }
+.rtab.active {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+    font-weight: 600;
+}
+
+/* Hidden filtered cards */
+.role-card.hidden-cat {
+    display: none;
+}
+
+/* Available start tag */
+.lf-tag.avail-start {
+    background: rgba(201,81,10,0.09);
+    color: var(--orange);
+    border-color: rgba(201,81,10,0.25);
+    font-weight: 600;
+}
+
 /* ══════════════════════════════════════════════════
    PROJECTS
 ══════════════════════════════════════════════════ */
@@ -951,6 +991,37 @@ section {
     line-height: 1.75;
     margin-bottom: 1.3rem;
 }
+.proj-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+}
+.proj-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+.proj-btn--gh {
+    background: var(--bg-2);
+    color: var(--text-2);
+    border-color: var(--border-2);
+}
+.proj-btn--gh:hover { background: var(--bg-3); color: var(--text); }
+.proj-btn--demo {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+    font-weight: 600;
+}
+.proj-btn--demo:hover { background: var(--green-dim); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(26,143,94,0.25); }
 
 /* ══════════════════════════════════════════════════
    SKILLS
