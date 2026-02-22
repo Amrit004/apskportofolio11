@@ -14,17 +14,56 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 50);
 }, { passive: true });
 
-/* ── SCROLL-IN FADE ANIMATIONS ───────────────────── */
-const fadeObserver = new IntersectionObserver((entries) => {
+/* ── 3D SCROLL REVEAL ────────────────────────────── */
+// Observe all animated elements
+const animatedEls = document.querySelectorAll('.fade-in, .fade-left, .fade-right');
+
+const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      fadeObserver.unobserve(entry.target); // animate once only
+      revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.08 });
+}, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+animatedEls.forEach(el => revealObserver.observe(el));
+
+// Auto-stagger children inside sections
+document.querySelectorAll('.timeline, .edu-grid, .projects-grid, .roles-grid, .gh-grid, .skills-container').forEach(container => {
+  const children = container.querySelectorAll('.fade-in, .fade-left, .fade-right, .timeline-item, .edu-card, .project-card, .role-card.visible, .skill-group');
+  children.forEach((child, i) => {
+    if (!child.style.transitionDelay) {
+      child.style.transitionDelay = `${i * 0.08}s`;
+    }
+  });
+});
+
+/* ── 3D CARD TILT ON HOVER (desktop only) ────────── */
+function addTilt(selector, maxTilt = 6) {
+  if (window.matchMedia('(pointer: coarse)').matches) return; // skip touch devices
+  document.querySelectorAll(selector).forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const cx   = rect.left + rect.width  / 2;
+      const cy   = rect.top  + rect.height / 2;
+      const dx   = (e.clientX - cx) / (rect.width  / 2);
+      const dy   = (e.clientY - cy) / (rect.height / 2);
+      card.style.transform = `perspective(800px) rotateY(${dx * maxTilt}deg) rotateX(${-dy * maxTilt}deg) translateZ(8px)`;
+      card.style.boxShadow = `${-dx * 12}px ${dy * 12}px 40px rgba(0,0,0,0.4), 0 0 20px rgba(99,212,176,0.08)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
+  });
+}
+
+addTilt('.project-card', 7);
+addTilt('.timeline-item', 4);
+addTilt('.edu-card', 5);
+addTilt('.role-card', 6);
+
 
 /* ── MOBILE NAVIGATION ───────────────────────────── */
 const hamburger = document.getElementById('navHamburger');
@@ -171,8 +210,8 @@ function renderRepos(repos) {
       </a>`;
   }).join('');
 
-  // Re-observe new cards for fade-in
-  ghGrid.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+  // Re-observe new cards for 3D reveal
+  ghGrid.querySelectorAll('.fade-in').forEach(el => revealObserver.observe(el));
 }
 
 function sortRepos(repos, mode) {
