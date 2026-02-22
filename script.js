@@ -331,7 +331,6 @@ Graduate Software Engineer & Cloud Computing Specialist
 
 CONTACT
 Email:    ap.singhkaur@gmail.com
-Phone:    07722 145 765
 Location: London, United Kingdom
 GitHub:   github.com/Amrit004
 LinkedIn: linkedin.com/in/amritpal-singh-kaur-b54b9a1b1
