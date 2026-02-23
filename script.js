@@ -326,52 +326,105 @@
 
     /* ── Download CV ─────────────────────────────── */
     window.downloadCV = function () {
-        const cv = `AMRITPAL SINGH KAUR (APSK)
-Graduate Software Engineer & Cloud Computing Specialist
+        const cv = `AMRITPAL SINGH KAUR
+MSc Advanced Computer Science Student
 
 CONTACT
-Email:    ap.singhkaur@gmail.com
-Location: London, United Kingdom
-GitHub:   github.com/Amrit004
-LinkedIn: linkedin.com/in/amritpal-singh-kaur-b54b9a1b1
+Email:     ap.singhkaur@gmail.com / sharysingh1144@gmail.com
+Location:  London, United Kingdom
+Portfolio: apskportofolio11.vercel.app
+LinkedIn:  linkedin.com/in/amritpal-singh-kaur-b54b9a1b1
+GitHub:    github.com/Amrit004
 
 PROFESSIONAL SUMMARY
-Graduate Computer Science professional and MSc Advanced Computer Science student at Queen Mary University of London. Strong expertise in cloud computing, machine learning, cybersecurity, and full-stack development. Proven experience in enterprise IT within regulated financial sectors.
-
-EDUCATION
-MSc Advanced Computer Science — Queen Mary University of London (2025–2026, In Progress)
-Specialisations: Cloud Computing, ML, Security & Auth, Functional Programming, Data Analytics
-
-BSc (Hons) Computer Science — 2:1 Honours
-Staffordshire University (Sep 2022 – May 2025)
+Multilingual Graduate Software Engineer (EN ES CA PA HI) with an MSc in Advanced Computer Science
+at Queen Mary University of London (2026) and a BSc 2:1 from Staffordshire University. Enterprise IT
+experience across regulated financial services (Bank of America), global travel technology (Amadeus)
+and energy (ENI). Author of 18 public GitHub repositories spanning cloud security, cryptography,
+AI-powered PWAs, full-stack applications and data analytics. Seeking graduate roles in software
+engineering, cloud/DevOps, data, or cybersecurity.
 
 PROFESSIONAL EXPERIENCE
-Bank of America — Deployment / Breakfix Engineer
-• Critical support for enterprise desktop systems in secure financial environment
-• Diagnosed and resolved complex hardware/software issues
-• Led large-scale deployment initiatives and asset management programs
 
-Amadeus — Field Support Technician (Level 2)
-• Delivered secure device replacements in global travel tech environment
-• Advanced system configurations and enterprise application installations
-• Escalation support for complex technical issues
+Deployment / Breakfix Engineer — Bank of America
+• Supported enterprise desktop systems in a secure, highly-regulated financial environment,
+  ensuring compliance with industry standards.
+• Diagnosed and resolved complex hardware and software issues, minimising downtime across
+  multiple business units.
+• Led large-scale deployment initiatives and asset management programmes supporting hundreds
+  of end-users.
+• Implemented security patches and system updates in line with financial industry regulations.
 
-ENI — IT Technician / Support
-• Frontline support for hardware, software and network connectivity
-• Monitored and maintained system uptime in enterprise environment
-• Created troubleshooting guides and procedures
+Field Support Technician (Level 2) — Amadeus Global Travel Technology
+• Delivered secure laptop and mobile device replacements with enterprise application installations
+  adhering to strict security protocols.
+• Provided escalation support for complex technical issues, collaborating with cross-functional
+  teams to resolve incidents efficiently.
+• Maintained detailed documentation of system configurations and troubleshooting procedures.
+
+IT Technician / Support — ENI Energy
+• Provided frontline support for hardware, software and network connectivity, maintaining high
+  system availability.
+• Proactively monitored enterprise system uptime and documented technical procedures for the
+  team knowledge base.
+
+EDUCATION
+
+MSc Advanced Computer Science — Queen Mary University of London (2025 – Present)
+Modules: Cloud Computing, Machine Learning, Security & Auth, Functional Programming,
+         Data Analytics, Research Project
+
+BSc (Hons) Computer Science — 2:1 Honours, Staffordshire University (2022 – 2025)
+Modules: Full-Stack Dev, Cloud Computing, AI, Cybersecurity, Mobile Dev, Databases,
+         Networking, UX Design
 
 TECHNICAL SKILLS
-Programming:  Java, JavaScript (Node.js, React), C#, Python, HTML5, CSS3, REST APIs
-Cloud/DevOps: AWS (EC2, S3, Lambda, IAM), Docker, Kubernetes, Microservices, Linux/Unix
-Databases:    SQL, MySQL, PostgreSQL, Database Design, Data Structures, Algorithms
-AI & ML:      Machine Learning, NLP, NumPy, Pandas, Scikit-learn, Predictive Analytics
-Security:     Network Security, Cybersecurity, Authentication, IAM, Encryption, Compliance
-Web/Mobile:   PWA, Android, Responsive Design, UX/UI, Accessibility (WCAG)
-Tools:        Git/GitHub, VS Code, Android Studio, Figma, Agile/Scrum, CI/CD
 
-LANGUAGES
-English (Native), Spanish (Native), Catalan (Native), Punjabi (Native), Hindi (Professional)
+Programming:       Java, JavaScript (ES6+), TypeScript, Python, C# (.NET), HTML5, CSS3,
+                   REST APIs, Functional Programming
+Cloud & DevOps:    AWS (EC2, S3, Lambda, IAM, CloudWatch), Docker, Kubernetes (basics),
+                   Linux/Unix, Windows Server, CI/CD
+Security:          Network Security, IAM, AES-256 Encryption, JWT Auth, CVE Analysis,
+                   Secure Design Patterns, FinTech Compliance
+AI & Data:         Machine Learning, NLP, Statistical Analysis, Data Visualisation,
+                   Predictive Modelling, Model Evaluation, AI Integration
+Frameworks & Libs: Node.js, React, Express.js, NumPy, Pandas, Scikit-learn,
+                   Matplotlib, Android SDK
+Databases:         SQL, MySQL, PostgreSQL, SQLite, Database Design, ER Modelling,
+                   Query Optimisation, Data Structures & Algorithms
+Web & Mobile:      Progressive Web Apps, Service Workers, Android Development,
+                   Responsive Design, WCAG Accessibility, Canvas API, UX/UI
+Tools & Workflow:  Git & GitHub, VS Code, Android Studio, Figma, Agile/Scrum,
+                   JIRA, Postman, Chrome DevTools, Vercel, Netlify
+
+FEATURED PROJECTS
+
+CipherOS — Cryptography Toolkit
+Browser-based cryptographic toolkit with AES-256 encryption, SHA/MD5 hashing, JWT decoder,
+password strength analyser and key generator using the Web Crypto API. Retro CRT terminal UI.
+
+NetScan Pro — Network Vulnerability Scanner
+Nmap/Nessus-style scanner simulation with 4 scan modes, CVE database of 12 vulnerabilities
+(Log4Shell, EternalBlue), OS fingerprinting and professional security reports.
+
+Wandr / AiTravel — AI Travel Planner PWA
+Installable Progressive Web App with client-side AI matching engine, NLP query processing,
+budget planning and full offline support via service workers. Cross-device responsive.
+
+SecureVault — Cloud Security Dashboard
+AWS SOC simulation with live threat feed, world threat map, IAM activity charts and compliance
+scoring. Directly inspired by enterprise security workflows at Bank of America.
+
+DevMetrics — GitHub Analytics Dashboard
+Real-time GitHub REST API consumer with Canvas-based language charts, contribution heatmap,
+repository metrics and a computed developer score algorithm (0–100).
+
+CodeFlow — Full-Stack Project Management
+Kanban board with JWT auth, drag-and-drop columns, multi-project support and activity
+logging — built from scratch with no external UI frameworks.
+
+LANGUAGES SPOKEN
+English (Native) | Spanish (Native) | Catalan (Native) | Punjabi (Native) | Hindi (Professional)
 `;
         const blob = new Blob([cv], { type: 'text/plain;charset=utf-8' });
         const url  = URL.createObjectURL(blob);
