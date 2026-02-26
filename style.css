@@ -324,6 +324,129 @@ h2 {
 }
 .edu-school { font-size: 0.92rem; color: var(--ink-muted); margin-bottom: 1.5rem; }
 
+/* ===== HERO DIFFERENTIATORS ===== */
+.diff-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.diff-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.diff-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+.diff-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+.diff-text { display: flex; flex-direction: column; gap: 0.2rem; }
+.diff-text strong {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-strong);
+  line-height: 1.2;
+}
+.diff-text span {
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+/* ===== SEEKING BLOCK ===== */
+.seeking-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+}
+.seeking-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.6rem;
+}
+.seeking-roles { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.seeking-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  padding: 0.3rem 0.8rem;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  color: var(--ink-muted);
+  background: var(--bg-alt);
+  transition: all 0.2s;
+}
+.seeking-role.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+/* ===== FEATURED PROJECT ===== */
+.project-featured {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.2s;
+}
+.project-featured:hover { box-shadow: 6px 6px 0 var(--border); }
+.project-featured-preview {
+  background: #0a0f1a;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 320px;
+}
+.proj-svg { width: 100%; height: auto; display: block; }
+.project-featured-info {
+  padding: 2.5rem 2rem;
+  background: var(--bg-card);
+  border-left: 1px solid var(--border);
+  display: flex; flex-direction: column;
+}
+.feat-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  padding: 0.3rem 0.75rem;
+  border-radius: 3px;
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+
+/* ===== SVG PREVIEW IN PROJECT CARDS ===== */
+.proj-preview {
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border);
+  background: #0d1117;
+  height: 140px;
+  display: flex; align-items: center; justify-content: center;
+}
+.proj-svg-sm { width: 100%; height: 100%; display: block; }
+
+/* Override project card padding when it has preview */
+.project-card .project-icon {
+  display: none;
+}
+
 /* ===== SUMMARY ===== */
 .summary-body {
   font-size: 1.08rem;
