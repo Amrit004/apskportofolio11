@@ -1,11 +1,41 @@
+// ===== EMAIL INJECTION (defeats Cloudflare obfuscation) =====
+// Email is assembled from char codes so scrapers can't mangle it
+(function() {
+  var e = [115,104,97,114,121,115,105,110,103,104,49,49,52,52,64,103,109,97,105,108,46,99,111,109];
+  var email = e.map(function(c){ return String.fromCharCode(c); }).join('');
+  var href = 'mailto:' + email;
+
+  var contactLink = document.getElementById('contact-email');
+  if (contactLink) {
+    contactLink.href = href;
+    contactLink.textContent = email;
+  }
+
+  var emailBtn = document.getElementById('email-btn');
+  if (emailBtn) {
+    emailBtn.href = href;
+  }
+
+  var footerEmail = document.getElementById('footer-email');
+  if (footerEmail) {
+    var a = document.createElement('a');
+    a.href = href;
+    a.textContent = email;
+    a.style.color = 'inherit';
+    a.style.textDecoration = 'none';
+    footerEmail.appendChild(a);
+  }
+})();
+
 // ===== THEME TOGGLE =====
-// Note: initial theme is already applied in <head> to prevent flash.
-// This script handles the button click after DOM is ready.
+(function() {
+  var saved = localStorage.getItem('apsk-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+})();
 
 document.addEventListener('DOMContentLoaded', function() {
 
   var btn = document.getElementById('themeToggle');
-
   if (btn) {
     btn.addEventListener('click', function() {
       var current = document.documentElement.getAttribute('data-theme');
@@ -45,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }, { threshold: 0.3 });
-
     sections.forEach(function(s) { observer.observe(s); });
   }
 
